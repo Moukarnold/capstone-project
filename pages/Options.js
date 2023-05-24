@@ -5,9 +5,8 @@ import {
   ContainerMainLabel,
   Box,
   InnereBox,
+  SpaceLabel,
 } from "@/components/styles/container.styled";
-
-const spaceLabel = { marginLeft: "8px" };
 
 export default function pageLanguage() {
   function handleCheckEnglish() {}
@@ -20,21 +19,21 @@ export default function pageLanguage() {
         <InnereBox>
           <h1> Options</h1>
           <ContainerMainLabel>
-            <input onChange={handleCheckEnglish} type="checkbox" />
+            <input onClick={handleCheckEnglish} type="checkbox" />
             <span style={spaceLabel}>
               {" "}
               <h3>Simple Sentences & For Kids</h3>
             </span>
           </ContainerMainLabel>
           <ContainerMainLabel>
-            <input onChange={handleCheckFrench} type="checkbox" />
+            <input onClick={handleCheckFrench} type="checkbox" />
             <span style={spaceLabel}>
               {" "}
               <h3>Poemes</h3>{" "}
             </span>
           </ContainerMainLabel>{" "}
           <ContainerMainLabel>
-            <input onChange={handleCheckDeutsch} type="checkbox" />
+            <input onClick={handleCheckDeutsch} type="checkbox" />
             <span style={spaceLabel}>
               {" "}
               <h3>Jokes</h3>{" "}

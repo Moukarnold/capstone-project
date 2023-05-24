@@ -39,3 +39,6 @@ export const InnereBox = styled.div`
   margin-bottom: 20%;
   margin-top: 10%;
 `;
+export const SpaceLabel = styled.span`
+  margin-left: 8px;
+`;

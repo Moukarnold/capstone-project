@@ -5,24 +5,34 @@ import {
   ContainerMainLabel,
   Box,
   InnereBox,
+  SpaceLabel,
 } from "@/components/styles/container.styled";
+import { useState } from "react";
 
-const SpaceLabel = styled.span`
-  margin-left: 8px;
-`;
+export default function PageLanguage() {
+  // the language is setted as default direct here
+  const [languages, setLanguages] = useState("english");
 
-export default function pageLanguage() {
-  function handleCheckEnglish(event) {}
-  function handleCheckFrench() {}
-  function handleCheckDeutsch() {}
+  //function finalLanguage() {}
 
+  function handleCheckLanguage(e) {
+    setLanguages(e);
+  }
+
+  console.log(languages);
   return (
     <ContainerMain>
       <Box>
         <InnereBox>
           <h1>Language</h1>
-          <ContainerMainLabel ContainerMainLabel>
-            <input onChange={handleCheckEnglish} type="checkbox" /> 🇬🇧{" "}
+          <ContainerMainLabel>
+            <input
+              onClick={() => handleCheckLanguage("english")}
+              type="checkbox"
+              name="english"
+              checked={languages === "english"}
+            />{" "}
+            🇬🇧{" "}
             <SpaceLabel>
               <h3>English</h3>
             </SpaceLabel>
@@ -30,14 +40,26 @@ export default function pageLanguage() {
               <i>(Set as default)</i>
             </SpaceLabel>
           </ContainerMainLabel>
-          <ContainerMainLabel ContainerMainLabel>
-            <input onChange={handleCheckFrench} type="checkbox" /> 🇫🇷{" "}
+          <ContainerMainLabel>
+            <input
+              onClick={() => handleCheckLanguage("french")}
+              type="checkbox"
+              checked={languages === "french"}
+              name="french"
+            />{" "}
+            🇫🇷{" "}
             <SpaceLabel>
               <h3>France</h3>
             </SpaceLabel>
           </ContainerMainLabel>
           <ContainerMainLabel>
-            <input onChange={handleCheckDeutsch} type="checkbox" /> 🇩🇪
+            <input
+              onClick={() => handleCheckLanguage("deutsch")}
+              type="checkbox"
+              checked={languages === "deutsch"}
+              name="deutsch"
+            />{" "}
+            🇩🇪
             <SpaceLabel>
               <h3>Deutsch</h3>
             </SpaceLabel>
