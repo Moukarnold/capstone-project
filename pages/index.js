@@ -1,33 +1,23 @@
-import styled from "styled-components";
+import { ContainerMain, InnereBox } from "@/components/styles/container.styled";
 import Link from "next/link";
-import {
-  ContainerMain,
-  Box,
-  InnereBox,
-} from "@/components/styles/container.styled";
+import styled from "styled-components";
 
 export default function HomePage() {
   return (
-    <div>
+    <>
       <ContainerMain>
         <InnereBox>
           <h1> Homepage</h1>
-          <Link href={"/languages"}>
-            <button> Languages</button>
-          </Link>
-          <Link href={"/Options"}>
-            <button> Options</button>
-          </Link>
-          <Link href={"/Level"}>
-            {" "}
-            <button> Level</button>
-          </Link>
-          <Link href={"/Next"}>
-            {" "}
-            <button> Next</button>
-          </Link>
+          <StyledLink href={"/languages"}>Languages</StyledLink>
+          <StyledLink href={"/options"}>Options</StyledLink>
+          <StyledLink href={"/level"}> Level</StyledLink>
+          <StyledLink href={"/next"}> Next</StyledLink>
         </InnereBox>
       </ContainerMain>
-    </div>
+    </>
   );
 }
+
+const StyledLink = styled(Link)`
+  box-shadow: ;
+`;
