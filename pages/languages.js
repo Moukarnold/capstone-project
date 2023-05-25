@@ -1,36 +1,32 @@
-import styled from "styled-components";
-import Link from "next/link";
 import {
+  Box,
   ContainerMain,
   ContainerMainLabel,
-  Box,
   InnereBox,
   SpaceLabel,
 } from "@/components/styles/container.styled";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function PageLanguage() {
-  // the language is setted as default direct here
-  const [languages, setLanguages] = useState("english");
+  const [language, setLanguage] = useState("english");
 
-  //function finalLanguage() {}
+  // form element um inpurfleder herum
+  // Values auslesen -> Informationen an andere Pages weiterleiten, damit die Sprache sich auf basis der auswahl ändert
 
-  function handleCheckLanguage(e) {
-    setLanguages(e);
-  }
-
-  console.log(languages);
   return (
     <ContainerMain>
       <Box>
         <InnereBox>
+          switch
           <h1>Language</h1>
           <ContainerMainLabel>
             <input
-              onClick={() => handleCheckLanguage("english")}
+              onClick={() => setLanguage("english")}
               type="checkbox"
+              value="english"
               name="english"
-              checked={languages === "english"}
+              checked={language === "english"}
             />{" "}
             🇬🇧{" "}
             <SpaceLabel>
@@ -42,9 +38,9 @@ export default function PageLanguage() {
           </ContainerMainLabel>
           <ContainerMainLabel>
             <input
-              onClick={() => handleCheckLanguage("french")}
+              onClick={() => setLanguage("french")}
               type="checkbox"
-              checked={languages === "french"}
+              checked={language === "french"}
               name="french"
             />{" "}
             🇫🇷{" "}
@@ -54,9 +50,9 @@ export default function PageLanguage() {
           </ContainerMainLabel>
           <ContainerMainLabel>
             <input
-              onClick={() => handleCheckLanguage("deutsch")}
+              onClick={() => setLanguage("deutsch")}
               type="checkbox"
-              checked={languages === "deutsch"}
+              checked={language === "deutsch"}
               name="deutsch"
             />{" "}
             🇩🇪

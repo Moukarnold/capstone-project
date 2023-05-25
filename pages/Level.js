@@ -1,39 +1,33 @@
-import styled from "styled-components";
-import Link from "next/link";
 import {
+  Box,
   ContainerMain,
   ContainerMainLabel,
-  Box,
   InnereBox,
-  SpaceLabel,
 } from "@/components/styles/container.styled";
+import Link from "next/link";
 
-export default function pageLanguage() {
-  function handleCheckEnglish() {}
-  function handleCheckFrench() {}
-  function handleCheckDeutsch() {}
-
+export default function pageLevel() {
   return (
     <ContainerMain>
       <Box>
         <InnereBox>
           <h1> Level</h1>
           <ContainerMainLabel>
-            <input onClick={handleCheckEnglish} type="checkbox" />
+            <input onClick={handleCheckLevel} type="checkbox" />
             <span style={spaceLabel}>
               {" "}
               <h3>Basic</h3>
             </span>
           </ContainerMainLabel>
           <ContainerMainLabel>
-            <input onClick={handleCheckFrench} type="checkbox" />
+            <input onClick={handleCheckLevel} type="checkbox" />
             <span style={spaceLabel}>
               {" "}
               <h3>Intermediaire</h3>{" "}
             </span>
           </ContainerMainLabel>{" "}
           <ContainerMainLabel>
-            <input onClick={handleCheckDeutsch} type="checkbox" />
+            <input onClick={handleCheckLevel} type="checkbox" />
             <span style={spaceLabel}>
               {" "}
               <h3>Advanced</h3>{" "}
