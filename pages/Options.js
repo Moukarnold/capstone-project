@@ -4,7 +4,7 @@ import {
   ContainerMainLabel,
   InnereBox,
   SpaceLabel,
-} from "@components/styledComponents/Container.styled";
+} from "@/components/styledComponents/Container.styled";
 import { optimizeFonts } from "@next.config";
 import Link from "next/link";
 import { useState } from "react";
