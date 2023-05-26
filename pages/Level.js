@@ -23,7 +23,7 @@ export default function PageLevel() {
           <h1> Level</h1>
           <ContainerMainLabel>
             <input
-              onClick={() => handleCheckLevel("Basic")}
+              onChange={() => handleCheckLevel("Basic")}
               type="checkbox"
               checked={levels === "Basic"}
               value="Basic"
@@ -36,7 +36,7 @@ export default function PageLevel() {
           </ContainerMainLabel>
           <ContainerMainLabel>
             <input
-              onClick={(Event) => handleCheckLevel("Intermediaire")}
+              onChange={(Event) => handleCheckLevel("Intermediaire")}
               type="checkbox"
               checked={levels === "Intermediaire"}
               value="Intermediaire"
@@ -49,7 +49,7 @@ export default function PageLevel() {
           </ContainerMainLabel>{" "}
           <ContainerMainLabel>
             <input
-              onClick={(Event) => handleCheckLevel("Advanced")}
+              onChange={(Event) => handleCheckLevel("Advanced")}
               type="checkbox"
               checked={levels === "Advanced"}
               value="Advanced"

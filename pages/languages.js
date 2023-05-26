@@ -9,7 +9,7 @@ import {
   SpaceLabel,
 } from "@/components/styledComponents/Container.styled";
 
-export default function PageLanguage(props) {
+export default function PageLanguage() {
   const [language, setLanguage] = useState("");
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function PageLanguage(props) {
     setLanguage(value);
     localStorage.setItem("language", value);
     const storedLanguage = localStorage.getItem("language");
-    console.log("La langue est " + storedLanguage);
+    console.log("the lang is " + storedLanguage);
   }
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function PageLanguage(props) {
                 onChange={handleLanguage}
                 type="checkbox"
                 value="english"
-                name={props.value}
+                name="english"
                 checked={language === "english"}
               />{" "}
               🇬🇧{" "}
@@ -63,7 +63,7 @@ export default function PageLanguage(props) {
                 onChange={handleLanguage}
                 type="checkbox"
                 checked={language === "french"}
-                name={props.value}
+                name="french"
                 value="french"
               />{" "}
               🇫🇷{" "}
@@ -76,7 +76,7 @@ export default function PageLanguage(props) {
                 onChange={handleLanguage}
                 type="checkbox"
                 checked={language === "deutsch"}
-                name={props.value}
+                name="deutsch"
                 value="deutsch"
               />{" "}
               🇩🇪

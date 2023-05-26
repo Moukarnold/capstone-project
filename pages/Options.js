@@ -26,7 +26,7 @@ export default function PageOptions() {
           <h1> Options</h1>
           <ContainerMainLabel>
             <input
-              onClick={() => handleOption(spk)}
+              onChange={() => handleOption(spk)}
               type="checkbox"
               checked={options === spk}
               name={spk}
@@ -39,11 +39,11 @@ export default function PageOptions() {
           </ContainerMainLabel>
           <ContainerMainLabel>
             <input
-              onClick={() => handleOption("Poemes")}
+              onChange={() => handleOption("Poemes")}
               type="checkbox"
               checked={options === "Poemes"}
-              name={spk}
-              value={spk}
+              name="Poemes"
+              value="Poemes"
             />
             <spaceLabel>
               {" "}
@@ -52,11 +52,11 @@ export default function PageOptions() {
           </ContainerMainLabel>{" "}
           <ContainerMainLabel>
             <input
-              onClick={() => handleOption("Jokes")}
+              onChange={() => handleOption("Jokes")}
               type="checkbox"
               checked={options === "Jokes"}
-              name={spk}
-              value={spk}
+              name="Jokes"
+              value="Jokes"
             />
             <spaceLabel>
               {" "}
