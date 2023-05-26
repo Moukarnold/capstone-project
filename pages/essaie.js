@@ -1,6 +1,3 @@
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import {
   Box,
   ContainerMain,
@@ -9,46 +6,41 @@ import {
   SpaceLabel,
 } from "@components/styledComponents/Container.styled";
 
-export default function PageLanguage(props) {
-  const [language, setLanguage] = useState("");
+import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
-  useEffect(() => {
-    const storedLanguage = localStorage.getItem("language");
-    if (storedLanguage) {
-      setLanguage(storedLanguage);
-    } else {
-      setLanguage("english");
-      localStorage.setItem("language", "english");
-    }
-  }, []);
+export default function PageLanguage() {
+  const [languages, setLanguage] = useState("english");
 
-  function handleLanguage(event) {
-    const { value } = event.target;
-    setLanguage(value);
-    localStorage.setItem("language", value);
-    const storedLanguage = localStorage.getItem("language");
-    console.log("La langue est " + storedLanguage);
+  function handleLanguage(Event) {
+    const { name, value } = Event.target;
+    setLanguage((prevValue) => {
+      return {
+        ...prevValue,
+        [name]: value,
+      };
+    });
+    console.log("die sprache ist " + prevValue);
   }
 
-  useEffect(() => {
-    if (language === "") {
-      setLanguage("english");
-    }
-  }, [language]);
+  // form element um inpurfleder herum
+  // Values auslesen -> Informationen an andere Pages weiterleiten, damit die Sprache sich auf basis der auswahl ändert
 
   return (
     <ContainerMain>
       <Box>
         <InnereBox>
+          switch
           <h1>Language</h1>
           <form>
             <ContainerMainLabel>
               <input
-                onChange={handleLanguage}
+                onClick={(Event) => handleLanguage("english")}
                 type="checkbox"
                 value="english"
-                name={props.value}
-                checked={language === "english"}
+                name="english"
+                checked={languages === "english"}
               />{" "}
               🇬🇧{" "}
               <SpaceLabel>
@@ -60,11 +52,10 @@ export default function PageLanguage(props) {
             </ContainerMainLabel>
             <ContainerMainLabel>
               <input
-                onChange={handleLanguage}
+                onClick={(Event) => handleLanguage("french")}
                 type="checkbox"
-                checked={language === "french"}
-                name={props.value}
-                value="french"
+                checked={languages === "french"}
+                name="french"
               />{" "}
               🇫🇷{" "}
               <SpaceLabel>
@@ -73,11 +64,10 @@ export default function PageLanguage(props) {
             </ContainerMainLabel>
             <ContainerMainLabel>
               <input
-                onChange={handleLanguage}
+                onClick={(Event) => handleLanguage("deutsch")}
                 type="checkbox"
-                checked={language === "deutsch"}
-                name={props.value}
-                value="deutsch"
+                checked={languages === "deutsch"}
+                name="deutsch"
               />{" "}
               🇩🇪
               <SpaceLabel>

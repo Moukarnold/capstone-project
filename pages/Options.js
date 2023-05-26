@@ -1,39 +1,67 @@
-import styled from "styled-components";
-import Link from "next/link";
 import {
+  Box,
   ContainerMain,
   ContainerMainLabel,
-  Box,
   InnereBox,
   SpaceLabel,
-} from "@/components/styles/container.styled";
+} from "@components/styledComponents/Container.styled";
+import { optimizeFonts } from "@next.config";
+import Link from "next/link";
+import { useState } from "react";
 
-export default function pageOptions() {
+const spk = "simple Sentences and for kids";
+
+export default function PageOptions() {
+  const [options, setOptions] = useState(spk);
+
+  function handleOption(option) {
+    setOptions(option);
+    console.log(option);
+  }
+
   return (
     <ContainerMain>
       <Box>
         <InnereBox>
           <h1> Options</h1>
           <ContainerMainLabel>
-            <input onClick={handleCheckOption} type="checkbox" />
-            <span style={spaceLabel}>
+            <input
+              onClick={() => handleOption(spk)}
+              type="checkbox"
+              checked={options === spk}
+              name={spk}
+              value={spk}
+            />
+            <spaceLabel>
               {" "}
               <h3>Simple Sentences & For Kids</h3>
-            </span>
+            </spaceLabel>
           </ContainerMainLabel>
           <ContainerMainLabel>
-            <input onClick={handleCheckOption} type="checkbox" />
-            <span style={spaceLabel}>
+            <input
+              onClick={() => handleOption("Poemes")}
+              type="checkbox"
+              checked={options === "Poemes"}
+              name={spk}
+              value={spk}
+            />
+            <spaceLabel>
               {" "}
               <h3>Poemes</h3>{" "}
-            </span>
+            </spaceLabel>
           </ContainerMainLabel>{" "}
           <ContainerMainLabel>
-            <input onClick={handleCheckOption} type="checkbox" />
-            <span style={spaceLabel}>
+            <input
+              onClick={() => handleOption("Jokes")}
+              type="checkbox"
+              checked={options === "Jokes"}
+              name={spk}
+              value={spk}
+            />
+            <spaceLabel>
               {" "}
               <h3>Jokes</h3>{" "}
-            </span>
+            </spaceLabel>
           </ContainerMainLabel>{" "}
         </InnereBox>
         <Link href={"/"}>

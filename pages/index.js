@@ -1,4 +1,7 @@
-import { ContainerMain, InnereBox } from "@/components/styles/container.styled";
+import {
+  ContainerMain,
+  InnereBox,
+} from "@components/styledComponents/Container.styled";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -19,5 +22,5 @@ export default function HomePage() {
 }
 
 const StyledLink = styled(Link)`
-  box-shadow: ;
+  box-shadow: 10px 5px 5px gray;
 `;

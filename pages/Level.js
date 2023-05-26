@@ -3,35 +3,62 @@ import {
   ContainerMain,
   ContainerMainLabel,
   InnereBox,
-} from "@/components/styles/container.styled";
+  SpaceLabel,
+} from "@components/styledComponents/Container.styled";
 import Link from "next/link";
+import { useState } from "react";
 
-export default function pageLevel() {
+export default function PageLevel() {
+  const [levels, setLevels] = useState("Basic");
+
+  function handleCheckLevel(level) {
+    setLevels(level);
+    console.log(level);
+  }
+
   return (
     <ContainerMain>
       <Box>
         <InnereBox>
           <h1> Level</h1>
           <ContainerMainLabel>
-            <input onClick={handleCheckLevel} type="checkbox" />
-            <span style={spaceLabel}>
+            <input
+              onClick={() => handleCheckLevel("Basic")}
+              type="checkbox"
+              checked={levels === "Basic"}
+              value="Basic"
+              name="Basic"
+            />
+            <SpaceLabel>
               {" "}
               <h3>Basic</h3>
-            </span>
+            </SpaceLabel>
           </ContainerMainLabel>
           <ContainerMainLabel>
-            <input onClick={handleCheckLevel} type="checkbox" />
-            <span style={spaceLabel}>
+            <input
+              onClick={(Event) => handleCheckLevel("Intermediaire")}
+              type="checkbox"
+              checked={levels === "Intermediaire"}
+              value="Intermediaire"
+              name="Intermediaire"
+            />
+            <SpaceLabel>
               {" "}
               <h3>Intermediaire</h3>{" "}
-            </span>
+            </SpaceLabel>
           </ContainerMainLabel>{" "}
           <ContainerMainLabel>
-            <input onClick={handleCheckLevel} type="checkbox" />
-            <span style={spaceLabel}>
+            <input
+              onClick={(Event) => handleCheckLevel("Advanced")}
+              type="checkbox"
+              checked={levels === "Advanced"}
+              value="Advanced"
+              name="Advanced"
+            />
+            <SpaceLabel>
               {" "}
               <h3>Advanced</h3>{" "}
-            </span>
+            </SpaceLabel>
           </ContainerMainLabel>{" "}
         </InnereBox>
         <Link href={"/"}>
