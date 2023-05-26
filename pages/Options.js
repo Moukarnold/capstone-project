@@ -32,10 +32,10 @@ export default function PageOptions() {
               name={spk}
               value={spk}
             />
-            <spaceLabel>
+            <SpaceLabel>
               {" "}
               <h3>Simple Sentences & For Kids</h3>
-            </spaceLabel>
+            </SpaceLabel>
           </ContainerMainLabel>
           <ContainerMainLabel>
             <input
@@ -45,10 +45,10 @@ export default function PageOptions() {
               name="Poemes"
               value="Poemes"
             />
-            <spaceLabel>
+            <SpaceLabel>
               {" "}
               <h3>Poemes</h3>{" "}
-            </spaceLabel>
+            </SpaceLabel>
           </ContainerMainLabel>{" "}
           <ContainerMainLabel>
             <input
@@ -58,10 +58,10 @@ export default function PageOptions() {
               name="Jokes"
               value="Jokes"
             />
-            <spaceLabel>
+            <SpaceLabel>
               {" "}
               <h3>Jokes</h3>{" "}
-            </spaceLabel>
+            </SpaceLabel>
           </ContainerMainLabel>{" "}
         </InnereBox>
         <Link href={"/"}>
