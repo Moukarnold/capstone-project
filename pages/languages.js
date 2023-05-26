@@ -7,7 +7,7 @@ import {
   ContainerMainLabel,
   InnereBox,
   SpaceLabel,
-} from "@components/styledComponents/Container.styled";
+} from "@/components/styledComponents/Container.styled";
 
 export default function PageLanguage(props) {
   const [language, setLanguage] = useState("");

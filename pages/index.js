@@ -1,7 +1,7 @@
 import {
   ContainerMain,
   InnereBox,
-} from "@components/styledComponents/Container.styled";
+} from "@/components/styledComponents/Container.styled";
 import Link from "next/link";
 import styled from "styled-components";
 
