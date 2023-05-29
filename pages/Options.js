@@ -13,10 +13,8 @@ export default function PageOptions(props) {
 
   function handleOption(event) {
     const selectedOptions = event.target.value;
-
     setSelectedOptions(selectedOptions);
     props.handleOption(selectedOptions);
-    console.log("the select ist" + selectedOptions);
   }
 
   return (

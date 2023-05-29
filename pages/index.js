@@ -5,6 +5,7 @@ import styled from "styled-components";
 import PageLanguage from "./languages";
 import PageLevel from "./level";
 import PageOptions from "./options";
+import { useEffect } from "react";
 
 export default function HomePage() {
   const [selectedLanguage, setSelectedLanguage] = useState("English");
@@ -12,7 +13,8 @@ export default function HomePage() {
     "Simple Sentences & For Kids"
   );
   const [selectedLevels, setSelectedLevels] = useState("Basic");
-  //const apiUrl = "https://jsonplaceholder.typicode.com/todos/";
+
+  function handleNext() {}
 
   function handleOption(option) {
     setSelectedOptions(option);
@@ -20,12 +22,12 @@ export default function HomePage() {
   }
   function handLeLevel(level) {
     setSelectedLevels(level);
-    console.log(" le Level" + level);
+    console.log("  Level est" + level);
   }
 
   function handleLanguage(language) {
     setSelectedLanguage(language);
-    console.log("la langue est " + language);
+    console.log(" language est " + language);
   }
 
   return (
@@ -38,7 +40,10 @@ export default function HomePage() {
         <PageOptions handleOption={handleOption} />
         <h2> Levels </h2>
         <PageLevel handLeLevel={handLeLevel} />
-        <StyledLink href={"/next"}> Next</StyledLink>
+        <StyledLink href={"/next"} onClick={handleNext}>
+          {" "}
+          Next
+        </StyledLink>
       </ContainerMain>
     </>
   );

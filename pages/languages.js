@@ -16,8 +16,6 @@ export default function PageLanguage(props) {
     const selectedLanguage = event.target.value;
     setSelectedLanguage(selectedLanguage);
     props.handleLanguage(selectedLanguage);
-
-    console.log("selected lang is " + selectedLanguage);
   }
 
   return (
