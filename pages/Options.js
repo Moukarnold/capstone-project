@@ -1,74 +1,35 @@
-import {
-  Box,
-  ContainerMain,
-  ContainerMainLabel,
-  InnereBox,
-  SpaceLabel,
-} from "@/components/styledComponents/Container.styled";
-
-import Link from "next/link";
 import { useState } from "react";
 
-const spk = "simple Sentences and for kids";
+const optionItems = [
+  {
+    label: "Simple Sentences & For Kids",
+    value: "simple sentences and for kids",
+  },
+  { label: "Poemes", value: "Poemes" },
+  { label: "Jokes", value: "Jokes" },
+];
+export default function PageOptions(props) {
+  const [selectedOptions, setSelectedOptions] = useState("");
 
-export default function PageOptions() {
-  const [options, setOptions] = useState(spk);
+  function handleOption(event) {
+    const selectedOptions = event.target.value;
 
-  function handleOption(option) {
-    setOptions(option);
-    console.log(option);
+    setSelectedOptions(selectedOptions);
+    props.handleOption(selectedOptions);
+    console.log("the select ist" + selectedOptions);
   }
 
   return (
-    <ContainerMain>
-      <Box>
-        <InnereBox>
-          <h1> Options</h1>
-          <ContainerMainLabel>
-            <input
-              onChange={() => handleOption(spk)}
-              type="checkbox"
-              checked={options === spk}
-              name={spk}
-              value={spk}
-            />
-            <SpaceLabel>
-              {" "}
-              <h3>Simple Sentences & For Kids</h3>
-            </SpaceLabel>
-          </ContainerMainLabel>
-          <ContainerMainLabel>
-            <input
-              onChange={() => handleOption("Poemes")}
-              type="checkbox"
-              checked={options === "Poemes"}
-              name="Poemes"
-              value="Poemes"
-            />
-            <SpaceLabel>
-              {" "}
-              <h3>Poemes</h3>{" "}
-            </SpaceLabel>
-          </ContainerMainLabel>{" "}
-          <ContainerMainLabel>
-            <input
-              onChange={() => handleOption("Jokes")}
-              type="checkbox"
-              checked={options === "Jokes"}
-              name="Jokes"
-              value="Jokes"
-            />
-            <SpaceLabel>
-              {" "}
-              <h3>Jokes</h3>{" "}
-            </SpaceLabel>
-          </ContainerMainLabel>{" "}
-        </InnereBox>
-        <Link href={"/"}>
-          {" "}
-          <button> Return</button>
-        </Link>
-      </Box>
-    </ContainerMain>
+    <select name="options" onChange={handleOption}>
+      {optionItems.map((item) => (
+        <option
+          // selected={options === item.value}
+          value={item.value}
+          key={item.value}
+        >
+          {item.label}
+        </option>
+      ))}
+    </select>
   );
 }

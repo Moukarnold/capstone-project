@@ -1,64 +1,59 @@
-import {
-  Box,
-  ContainerMain,
-  ContainerMainLabel,
-  InnereBox,
-  SpaceLabel,
-} from "@/components/styledComponents/Container.styled";
-import Link from "next/link";
 import { useState } from "react";
 
-export default function PageLevel() {
-  const [levels, setLevels] = useState("Basic");
+const levelItems = [
+  {
+    label: "Basic",
+    value: "Basic",
+  },
+  { label: "Intermediaire", value: "Intermediaire" },
+  { label: "Advanced", value: "Advanced" },
+];
 
-  function handleCheckLevel(level) {
-    setLevels(level);
-    console.log(level);
+export default function PageLevel(props) {
+  const [selectedLevels, setSelectedLevels] = useState("");
+
+  function handLeLevel(event) {
+    const selectedLevels = event.target.value;
+    setSelectedLevels(selectedLevels);
+    props.handLeLevel(selectedLevels);
+    console.log("selectedLevels" + selectedLevels);
   }
 
   return (
+    <select name="Levels" onChange={handLeLevel}>
+      {levelItems.map((item) => (
+        <option
+          //selected={levels === item.value}
+          value={item.value}
+          key={item.value}
+        >
+          {item.label}
+        </option>
+      ))}
+    </select>
+  );
+}
+
+/* (
     <ContainerMain>
       <Box>
         <InnereBox>
           <h1> Level</h1>
           <ContainerMainLabel>
-            <input
-              onChange={() => handleCheckLevel("Basic")}
-              type="checkbox"
-              checked={levels === "Basic"}
-              value="Basic"
-              name="Basic"
-            />
-            <SpaceLabel>
-              {" "}
-              <h3>Basic</h3>
-            </SpaceLabel>
-          </ContainerMainLabel>
-          <ContainerMainLabel>
-            <input
-              onChange={(Event) => handleCheckLevel("Intermediaire")}
-              type="checkbox"
-              checked={levels === "Intermediaire"}
-              value="Intermediaire"
-              name="Intermediaire"
-            />
-            <SpaceLabel>
-              {" "}
-              <h3>Intermediaire</h3>{" "}
-            </SpaceLabel>
-          </ContainerMainLabel>{" "}
-          <ContainerMainLabel>
-            <input
-              onChange={(Event) => handleCheckLevel("Advanced")}
-              type="checkbox"
-              checked={levels === "Advanced"}
-              value="Advanced"
-              name="Advanced"
-            />
-            <SpaceLabel>
-              {" "}
-              <h3>Advanced</h3>{" "}
-            </SpaceLabel>
+            <select
+              name="Levels"
+              onChange={(event) => handleCheckLevel(event.target.value)}
+            >
+              {levelItems.map((item) => (
+                <option
+                  //selected={levels === item.value}
+                  value={item.value}
+                  key={item.value}
+                >
+                  {item.label}
+                </option>
+              ))}
+            </select>
           </ContainerMainLabel>{" "}
         </InnereBox>
         <Link href={"/"}>
@@ -67,5 +62,4 @@ export default function PageLevel() {
         </Link>
       </Box>
     </ContainerMain>
-  );
-}
+  ); */
