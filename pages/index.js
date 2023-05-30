@@ -2,9 +2,9 @@ import { ContainerMain } from "@/components/styledComponents/Container.styled";
 import Link from "next/link";
 import { useState } from "react";
 import styled from "styled-components";
-import PageLanguage from "./languages";
-import PageLevel from "./level";
-import PageOptions from "./options";
+import PageLanguage from "../components/language/languages";
+import PageLevel from "../components/level/level";
+import PageOptions from "../components/options/options";
 import { useEffect } from "react";
 
 export default function HomePage() {
@@ -45,7 +45,7 @@ export default function HomePage() {
         <PageOptions handleOption={handleOption} />
         <h2> Text Level </h2>
         <PageLevel handLeLevel={handLeLevel} />
-        <StyledLink href={"/next"} onClick={handleNext}>
+        <StyledLink href={"/folgePage"} onClick={handleNext}>
           {" "}
           Next
         </StyledLink>

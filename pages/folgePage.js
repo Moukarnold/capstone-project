@@ -7,12 +7,12 @@ import Link from "next/link";
 import { useEffect } from "react";
 import HomePage from ".";
 
-export default function Nextpage() {
+export default function FolgePage() {
   return (
     <ContainerMain>
       <InnereBox> </InnereBox>
       <button> refresh </button>
-      <StyledLink href={"/"}> return</StyledLink>
+      <StyledLink href={"/folgePage"}> return</StyledLink>
     </ContainerMain>
   );
 }
