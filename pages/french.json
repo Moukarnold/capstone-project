@@ -1,0 +1,74 @@
+[
+  {
+    "basic": [
+      { "sentence1": "Cinq chiens chassent six chats." },
+      {
+        "sentence2": "Dans la gendarmerie, quand un gendarme rit, tous les gendarmes rient dans la gendarmerie."
+      },
+      { "sentence3": "Elle est partie avec tonton, ton Taine et ton thon." },
+      {
+        "sentence4": "Vos laitues naissent-elles ? Oui, mes laitues naissent. Si vos laitues naissent, mes laitues naîtront."
+      },
+      { "sentence5": "Son chat chante sa chanson." },
+      { "sentence6": "As-tu été à Tahiti?" },
+      { "sentence7": "Chouettes chaussures!" },
+      { "sentence8": "La robe rouge de Rosalie est ravissante." },
+      { "sentence9": "Pourquoi donc tant de thym dans ce gratin de thon?" },
+      {
+        "sentence10": "L'autocar part tard, gare! Gare, à l'autocar! Car l'autocar part dare dare quand l'autocar part tard."
+      }
+    ]
+  },
+  {
+    "intermediaire": [
+      {
+        "sentence1": "Le blé s'moud-il ? L'habit s'coud-il ? Oui l'blé s'moud, l'habit s'coud."
+      },
+      { "sentence2": "Pourquoi les alliés ne se désolidariseraient-ils pas?" },
+      {
+        "sentence3": "Tu t'entêtes à tout tenter, tu t'uses et tu te tues à tant t'entêter."
+      },
+      { "sentence4": "Si ma tata tâte ta tata, ta tata sera tâtée." },
+      {
+        "sentence5": "Le fisc fixe exprès chaque taxe fixe excessive exclusivement au luxe et à l'acquis."
+      },
+      { "sentence6": "La pipe au papa du Pape Pie pue." },
+      {
+        "sentence7": "Un chasseur qui chassait fit sécher ses chaussettes sur une souche sèche."
+      },
+      { "sentence8": "Ciel ! Si ceci se sait ces soins sont sans succès!" },
+      {
+        "sentence9": "Mur usé, trou s'y fait, rat s'y met, chat l'y prend. Mur pourri, trou s'y fit, rat s'y mit, chat l'y prit."
+      },
+      { "sentence10": "Ces cyprès sont si loin qu'on ne sait si c'en sont." }
+    ]
+  },
+  {
+    "advanced": [
+      {
+        "sentence1": "Document réalisé à partir de ressources trouvées dans des bibliothèques et sur la Toile. – http://bdemauge.free.fr Il était une fois, un homme de foi qui vendait du foie dans la ville de Foix. Il se dit : « Ma foi, c'est la dernière fois que je vends du foie dans la ville de Foix. »"
+      },
+      { "sentence2": "Six saucissons secs. Six cents saucissons secs." },
+      {
+        "sentence3": "C'est un zèbre chromatique qui veut sucer un sucre d'orge dans un igloo."
+      },
+      { "sentence4": "L'heure de ta montre est-elle à l'heure?" },
+      {
+        "sentence5": "Trois petites truites cuites, trois petites truites crues."
+      },
+      {
+        "sentence6": "Un chasseur sachant chasser sait chasser sans son chien."
+      },
+      {
+        "sentence7": "Les chaussettes de l'archiduchesse sont-elles sèches, archi-sèches ?"
+      },
+      {
+        "sentence8": "Je suis un pêcheur et je pêche dans la Seine et dans la Marne. Quand je pêche dans la Seine, je suis un pécheur."
+      },
+      { "sentence9": "Mon père est maire, il est fier, il a mal à la jambe." },
+      {
+        "sentence10": "Elle a du toupet, cette petite poupée à qui l'on a coupé les cheveux."
+      }
+    ]
+  }
+]

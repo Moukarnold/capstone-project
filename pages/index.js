@@ -13,8 +13,13 @@ export default function HomePage() {
     "Simple Sentences & For Kids"
   );
   const [selectedLevels, setSelectedLevels] = useState("Basic");
+  const [frenchText, setFrenchText] = useState(""); // Nouvel état pour le texte en français
 
-  function handleNext() {}
+  function handleNext() {
+    fetch("french.json")
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  }
 
   function handleOption(option) {
     setSelectedOptions(option);
@@ -34,11 +39,11 @@ export default function HomePage() {
     <>
       <ContainerMain>
         <h2> Homepage</h2>
-        <h2> Languages</h2>
+        <h2> Text Language </h2>
         <PageLanguage handleLanguage={handleLanguage} />
-        <h2> Options</h2>
+        <h2> Text Option</h2>
         <PageOptions handleOption={handleOption} />
-        <h2> Levels </h2>
+        <h2> Text Level </h2>
         <PageLevel handLeLevel={handLeLevel} />
         <StyledLink href={"/next"} onClick={handleNext}>
           {" "}

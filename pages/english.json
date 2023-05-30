@@ -1,0 +1,93 @@
+[
+  {
+    "basic": [
+      { "sentence1": "Peter Piper picked a peck of pickled peppers." },
+      { "sentence2": "She sells seashells by the seashore." },
+      { "sentence3": "How can a clam cram in a clean cream can." },
+      { "sentence4": "I scream, you scream, we all scream for ice cream." },
+      {
+        "sentence5": "Fuzzy Wuzzy was a bear Fuzzy Wuzzy had no hair Fuzzy Wuzzy wasnt fuzzy was he."
+      },
+      { "sentence6": "I saw a kitten eating chicken in the kitchen." },
+      { "sentence7": "Willie’s really weary." },
+      { "sentence8": "A big black bear sat on a big black rug." },
+      {
+        "sentence9": "Which witch is which Which witch is which Which witch is which."
+      },
+      { "sentence10": "Flash message Flash message Flash message." }
+    ]
+  },
+  {
+    "intermediate": [
+      { "sentence1": "Betty Botter bought a bit of butter." },
+      {
+        "sentence2": "How much wood would a woodchuck chuck if a woodchuck could chuck wood?"
+      },
+      {
+        "sentence3": "I saw Susie sitting in a shoeshine shop Susie works in a shoeshine shop Where she shines she sits and where she sits she shines."
+      },
+      { "sentence4": "Can you can a can as a canner can can a can." },
+      {
+        "sentence5": "I have got a date at a quarter to eight I will see you at the gate so do not be late."
+      },
+      { "sentence6": "I thought I thought of thinking of thanking you." },
+      { "sentence7": "I wish to wash my Irish wristwatch." },
+      { "sentence8": "Eddie edited it." },
+      { "sentence9": "Tom threw Tim 3 thumb tacks." },
+      { "sentence10": "Four fine fresh fish for you." },
+      { "sentence11": "So, this is the sushi chef." },
+      {
+        "sentence12": "Red Buick blue Buick Red Buick blue Buick Red Buick blue Buick."
+      },
+      {
+        "sentence13": "Thin sticks thick bricks Thin sticks thick bricks Thin sticks thick bricks."
+      },
+      {
+        "sentence14": "Eleven benevolent elephants Eleven benevolent elephants Eleven benevolent elephants."
+      },
+      {
+        "sentence15": "Preshrunk silk shirts Preshrunk silk shirts Preshrunk silk shirts."
+      },
+      { "sentence16": "Which wristwatches are Swiss wristwatches." },
+      {
+        "sentence17": "I slit the sheet the sheet I slit and on the slitted sheet I sit."
+      }
+    ]
+  },
+  {
+    "advanced": [
+      {
+        "sentence1": "Betty Botter bought a bit of better butter Making Betty Botter's bitter batter better."
+      },
+      { "sentence2": "If a dog chews shoes whose shoes does he choose." },
+      {
+        "sentence3": "You know New York you need New York you know you need unique New York."
+      },
+      { "sentence4": "Near an ear, a nearer ear, a nearly eerie ear." },
+      { "sentence5": "We surely shall see the sun shine soon." },
+      { "sentence6": "Fred fed Ted bread and Ted fed Fred bread." },
+      {
+        "sentence7": "A skunk sat on a stump and thunk the stump stunk but the stump thunk the skunk stunk."
+      },
+      {
+        "sentence8": "Red lorry yellow lorry Red lorry yellow lorry Red lorry yellow lorry."
+      },
+      {
+        "sentence9": "Stupid superstition Stupid superstition Stupid superstition."
+      },
+      {
+        "sentence10": "Two tried and true tridents Two tried and true tridents Two tried and true tridents."
+      },
+      {
+        "sentence11": "Rolling red wagons Rolling red wagons Rolling red wagons."
+      },
+      { "sentence12": "She sees cheese She sees cheese She sees cheese." },
+      { "sentence13": "Truly rural Truly rural Truly rural." },
+      {
+        "sentence14": "Good blood bad blood Good blood bad blood Good blood bad blood."
+      },
+      { "sentence15": "Ed had edited it Ed had edited it Ed had edited it." },
+      { "sentence16": "Lesser leather never weathered wetter weather better." }
+    ]
+  }
+]
