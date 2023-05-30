@@ -13,12 +13,12 @@ export default function HomePage() {
     "Simple Sentences & For Kids"
   );
   const [selectedLevels, setSelectedLevels] = useState("Basic");
-  const [frenchText, setFrenchText] = useState(""); // Nouvel état pour le texte en français
+  //const [frenchText, setFrenchText] = useState("");
 
   function handleNext() {
-    fetch("french.json")
+    /*  fetch("french.json")
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => console.log(data));*/
   }
 
   function handleOption(option) {
