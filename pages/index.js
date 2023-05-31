@@ -5,7 +5,7 @@ import styled from "styled-components";
 import PageLanguage from "../components/language/languages";
 import PageLevel from "../components/level/level";
 import PageOptions from "../components/options/options";
-import { useEffect } from "react";
+import frenchData from "./french.json";
 
 export default function HomePage() {
   const [selectedLanguage, setSelectedLanguage] = useState("English");
@@ -13,12 +13,45 @@ export default function HomePage() {
     "Simple Sentences & For Kids"
   );
   const [selectedLevels, setSelectedLevels] = useState("Basic");
-  //const [frenchText, setFrenchText] = useState("");
 
-  function handleNext() {
-    /*  fetch("french.json")
-      .then((res) => res.json())
-      .then((data) => console.log(data));*/
+  function handleNext(props) {
+    // Récupérez la langue, les options et le niveau sélectionnés
+    const language = selectedLanguage;
+    const options = selectedOptions;
+    const level = selectedLevels;
+
+    // Générez le virelangue
+    generateTongueTwister(language, options, level)
+      .then((tongueTwister) => {
+        console.log(tongueTwister);
+        // Faites quelque chose avec le virelangue généré, par exemple, affichez-le à l'utilisateur
+      })
+      .catch((error) => {
+        console.error(
+          "Une erreur s'est produite lors de la génération du virelangue :",
+          error
+        );
+      });
+
+    /*
+      +++ call the togue twister from json+++++
+
+    function getRandomSentence() {
+      // Sélectionner une catégorie au hasard
+      const randomCategoryIndex = Math.floor(Math.random() * frenchData.length);
+      const category = frenchData[randomCategoryIndex];
+
+      // Sélectionner une phrase au hasard dans la catégorie
+      const sentences = Object.values(category)[0];
+      const randomSentenceIndex = Math.floor(Math.random() * sentences.length);
+      const randomSentence = Object.values(sentences[randomSentenceIndex])[0];
+
+      return randomSentence;
+    
+
+    // Obtenir une phrase aléatoire
+    const randomSentence = getRandomSentence();
+    console.log(randomSentence);*/
   }
 
   function handleOption(option) {

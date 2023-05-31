@@ -8,11 +8,15 @@ import { useEffect } from "react";
 import HomePage from ".";
 
 export default function FolgePage() {
+  function handleRefresh() {}
+
   return (
     <ContainerMain>
-      <InnereBox> </InnereBox>
-      <button> refresh </button>
-      <StyledLink href={"/folgePage"}> return</StyledLink>
+      <InnereBox>
+        <p> </p>
+      </InnereBox>
+      <button onClick={handleRefresh}> refresh </button>
+      <StyledLink href={"/"}> return</StyledLink>
     </ContainerMain>
   );
 }
