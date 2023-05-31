@@ -1,33 +1,59 @@
-import styled from "styled-components";
+import { ContainerMain } from "@/components/styledComponents/Container.styled";
 import Link from "next/link";
-import {
-  ContainerMain,
-  Box,
-  InnereBox,
-} from "@/components/styles/container.styled";
+import { useState } from "react";
+import styled from "styled-components";
+import PageLanguage from "../components/language/languages";
+import PageLevel from "../components/level/level";
+import PageOptions from "../components/options/options";
+import { useEffect } from "react";
 
 export default function HomePage() {
+  const [selectedLanguage, setSelectedLanguage] = useState("English");
+  const [selectedOptions, setSelectedOptions] = useState(
+    "Simple Sentences & For Kids"
+  );
+  const [selectedLevels, setSelectedLevels] = useState("Basic");
+  //const [frenchText, setFrenchText] = useState("");
+
+  function handleNext() {
+    /*  fetch("french.json")
+      .then((res) => res.json())
+      .then((data) => console.log(data));*/
+  }
+
+  function handleOption(option) {
+    setSelectedOptions(option);
+    console.log("option est " + option);
+  }
+  function handLeLevel(level) {
+    setSelectedLevels(level);
+    console.log("  Level est" + level);
+  }
+
+  function handleLanguage(language) {
+    setSelectedLanguage(language);
+    console.log(" language est " + language);
+  }
+
   return (
-    <div>
+    <>
       <ContainerMain>
-        <InnereBox>
-          <h1> Homepage</h1>
-          <Link href={"/languages"}>
-            <button> Languages</button>
-          </Link>
-          <Link href={"/Options"}>
-            <button> Options</button>
-          </Link>
-          <Link href={"/Level"}>
-            {" "}
-            <button> Level</button>
-          </Link>
-          <Link href={"/Next"}>
-            {" "}
-            <button> Next</button>
-          </Link>
-        </InnereBox>
+        <h2> Homepage</h2>
+        <h2> Text Language </h2>
+        <PageLanguage handleLanguage={handleLanguage} />
+        <h2> Text Option</h2>
+        <PageOptions handleOption={handleOption} />
+        <h2> Text Level </h2>
+        <PageLevel handLeLevel={handLeLevel} />
+        <StyledLink href={"/folgePage"} onClick={handleNext}>
+          {" "}
+          Next
+        </StyledLink>
       </ContainerMain>
-    </div>
+    </>
   );
 }
+
+const StyledLink = styled(Link)`
+  box-shadow: 10px 5px 5px gray;
+`;

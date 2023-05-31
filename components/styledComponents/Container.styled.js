@@ -27,17 +27,17 @@ export const Box = styled.div`
 `;
 
 export const InnereBox = styled.div`
-  background-color: pink;
+  //background-color: pink;
   height: 350px;
-  width: 300px;
+  width: 400px;
   border: 2px solid;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 20%;
-  margin-top: 10%;
+  margin-bottom: 10%;
+  margin-top: 5%;
 `;
 export const SpaceLabel = styled.span`
   margin-left: 8px;
