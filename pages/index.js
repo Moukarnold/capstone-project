@@ -18,7 +18,7 @@ export default function HomePage() {
 
   return (
     <>
-      <h2>Config</h2>
+      <h2> tongue twister</h2>
 
       <label htmlFor="lang-select">Language:</label>
       <select
