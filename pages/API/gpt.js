@@ -1,4 +1,4 @@
-import { createAnswer } from "@/utils/openaiConfig.js";
+/*import { createAnswer } from "@/utils/openaiConfig.js";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -7,3 +7,4 @@ export default async function handler(req, res) {
     return res.status(200).json(answer);
   }
 }
+*/

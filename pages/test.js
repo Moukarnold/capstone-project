@@ -1,5 +1,5 @@
-import { useState } from "react";
-
+/* import { useState } from "react";
+ 
 export default function Home() {
   const [answer, setAnswer] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -52,5 +52,4 @@ export default function Home() {
       </form>
       {loading ? <p>loading..</p> : <p>{answer?.answer.content}</p>}
     </>
-  );
-}
+  );*/
