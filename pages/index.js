@@ -1,92 +1,77 @@
-import { ContainerMain } from "@/components/styledComponents/Container.styled";
-import Link from "next/link";
 import { useState } from "react";
-import styled from "styled-components";
-import PageLanguage from "../components/language/languages";
-import PageLevel from "../components/level/level";
-import PageOptions from "../components/options/options";
-import frenchData from "./french.json";
+import twisters from "/public/twisters";
 
 export default function HomePage() {
-  const [selectedLanguage, setSelectedLanguage] = useState("English");
-  const [selectedOptions, setSelectedOptions] = useState(
-    "Simple Sentences & For Kids"
-  );
-  const [selectedLevels, setSelectedLevels] = useState("Basic");
+  const [config, setConfig] = useState({
+    language: "",
+    theme: "",
+    difficulty: "",
+  });
 
-  function handleNext(props) {
-    // Récupérez la langue, les options et le niveau sélectionnés
-    const language = selectedLanguage;
-    const options = selectedOptions;
-    const level = selectedLevels;
-
-    // Générez le virelangue
-    generateTongueTwister(language, options, level)
-      .then((tongueTwister) => {
-        console.log(tongueTwister);
-        // Faites quelque chose avec le virelangue généré, par exemple, affichez-le à l'utilisateur
-      })
-      .catch((error) => {
-        console.error(
-          "Une erreur s'est produite lors de la génération du virelangue :",
-          error
-        );
-      });
-
-    /*
-      +++ call the togue twister from json+++++
-
-    function getRandomSentence() {
-      // Sélectionner une catégorie au hasard
-      const randomCategoryIndex = Math.floor(Math.random() * frenchData.length);
-      const category = frenchData[randomCategoryIndex];
-
-      // Sélectionner une phrase au hasard dans la catégorie
-      const sentences = Object.values(category)[0];
-      const randomSentenceIndex = Math.floor(Math.random() * sentences.length);
-      const randomSentence = Object.values(sentences[randomSentenceIndex])[0];
-
-      return randomSentence;
-    
-
-    // Obtenir une phrase aléatoire
-    const randomSentence = getRandomSentence();
-    console.log(randomSentence);*/
-  }
-
-  function handleOption(option) {
-    setSelectedOptions(option);
-    console.log("option est " + option);
-  }
-  function handLeLevel(level) {
-    setSelectedLevels(level);
-    console.log("  Level est" + level);
-  }
-
-  function handleLanguage(language) {
-    setSelectedLanguage(language);
-    console.log(" language est " + language);
-  }
+  const selectedTwister = twisters.find((twister) => {
+    return (
+      twister.language === config.language &&
+      twister.theme === config.theme &&
+      twister.difficulty === config.difficulty
+    );
+  });
 
   return (
     <>
-      <ContainerMain>
-        <h2> Homepage</h2>
-        <h2> Text Language </h2>
-        <PageLanguage handleLanguage={handleLanguage} />
-        <h2> Text Option</h2>
-        <PageOptions handleOption={handleOption} />
-        <h2> Text Level </h2>
-        <PageLevel handLeLevel={handLeLevel} />
-        <StyledLink href={"/folgePage"} onClick={handleNext}>
-          {" "}
-          Next
-        </StyledLink>
-      </ContainerMain>
+      <h2>Config</h2>
+
+      <label htmlFor="lang-select">Language:</label>
+      <select
+        required
+        name="lang-select"
+        id="lang-select"
+        value={config.language}
+        onChange={(event) => {
+          setConfig({ ...config, language: event.target.value });
+        }}
+      >
+        <option value="">--Please choose an option--</option>
+        <option value="English">English</option>
+        <option value="French">French</option>
+        <option value="German">German</option>
+      </select>
+      <br />
+      <label htmlFor="lang-select">Theme:</label>
+      <select
+        required
+        name="theme-select"
+        id="theme-select"
+        value={config.theme}
+        onChange={(event) => {
+          setConfig({ ...config, theme: event.target.value });
+        }}
+      >
+        <option value="">--Please choose an option--</option>
+        <option value="Poems">Poems</option>
+        <option value="Jokes">Jokes</option>
+        <option value="For Kids">For Kids</option>
+      </select>
+      <br />
+      <label htmlFor="lang-select">Difficulty:</label>
+      <select
+        required
+        name="difficulty-select"
+        id="difficulty-select"
+        value={config.difficulty}
+        onChange={(event) => {
+          setConfig({ ...config, difficulty: event.target.value });
+        }}
+      >
+        <option value="">--Please choose an option--</option>
+        <option value="Basic">Basic</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+      </select>
+      <br />
+
+      <hr />
+
+      {selectedTwister?.tongue_twister}
     </>
   );
 }
-
-const StyledLink = styled(Link)`
-  box-shadow: 10px 5px 5px gray;
-`;

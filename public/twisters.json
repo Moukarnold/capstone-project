@@ -1,0 +1,164 @@
+[
+  {
+    "language": "English",
+    "theme": "Jokes",
+    "difficulty": "Basic",
+    "tongue_twister": "How much wood would a woodchuck chuck if a woodchuck could chuck wood?"
+  },
+  {
+    "language": "English",
+    "theme": "Jokes",
+    "difficulty": "Intermediate",
+    "tongue_twister": "Peter Piper picked a peck of pickled peppers."
+  },
+  {
+    "language": "English",
+    "theme": "Jokes",
+    "difficulty": "Advanced",
+    "tongue_twister": "How can a clam cram in a clean cream can?"
+  },
+  {
+    "language": "English",
+    "theme": "Poems",
+    "difficulty": "Basic",
+    "tongue_twister": "She sells seashells by the seashore."
+  },
+  {
+    "language": "English",
+    "theme": "Poems",
+    "difficulty": "Intermediate",
+    "tongue_twister": "Betty Botter bought some butter but the butter was bitter."
+  },
+  {
+    "language": "English",
+    "theme": "Poems",
+    "difficulty": "Advanced",
+    "tongue_twister": "I saw Susie sitting in a shoeshine shop."
+  },
+  {
+    "language": "English",
+    "theme": "For Kids",
+    "difficulty": "Basic",
+    "tongue_twister": "Fuzzy Wuzzy was a bear. Fuzzy Wuzzy had no hair."
+  },
+  {
+    "language": "English",
+    "theme": "For Kids",
+    "difficulty": "Intermediate",
+    "tongue_twister": "How much ground would a groundhog hog, if a groundhog could hog ground?"
+  },
+  {
+    "language": "English",
+    "theme": "For Kids",
+    "difficulty": "Advanced",
+    "tongue_twister": "I scream, you scream, we all scream for ice cream."
+  },
+  {
+    "language": "French",
+    "theme": "Jokes",
+    "difficulty": "Basic",
+    "tongue_twister": "Combien de sous sont ces saucissons? Ces saucissons sont six sous."
+  },
+  {
+    "language": "French",
+    "theme": "Jokes",
+    "difficulty": "Intermediate",
+    "tongue_twister": "Je veux et j'exige d'exquises excuses."
+  },
+  {
+    "language": "French",
+    "theme": "Jokes",
+    "difficulty": "Advanced",
+    "tongue_twister": "Les chaussettes de l'archiduchesse sont-elles sèches, archi-sèches?"
+  },
+  {
+    "language": "French",
+    "theme": "Poems",
+    "difficulty": "Basic",
+    "tongue_twister": "Un chasseur sachant chasser sans son chien est un bon chasseur."
+  },
+  {
+    "language": "French",
+    "theme": "Poems",
+    "difficulty": "Intermediate",
+    "tongue_twister": "Tonton, ton thé t’a-t-il oté ta toux?"
+  },
+  {
+    "language": "French",
+    "theme": "Poems",
+    "difficulty": "Advanced",
+    "tongue_twister": "Si six scies scient six cyprès, six cents scies scient six cent cyprès."
+  },
+  {
+    "language": "French",
+    "theme": "For Kids",
+    "difficulty": "Basic",
+    "tongue_twister": "Cinq chiens chassent six chats."
+  },
+  {
+    "language": "French",
+    "theme": "For Kids",
+    "difficulty": "Intermediate",
+    "tongue_twister": "Poisson sans boisson, c'est la solution."
+  },
+  {
+    "language": "French",
+    "theme": "For Kids",
+    "difficulty": "Advanced",
+    "tongue_twister": "Le ver vert va vers le verre vert."
+  },
+  {
+    "language": "German",
+    "theme": "Jokes",
+    "difficulty": "Basic",
+    "tongue_twister": "Fischers Fritz fischt frische Fische."
+  },
+  {
+    "language": "German",
+    "theme": "Jokes",
+    "difficulty": "Intermediate",
+    "tongue_twister": "Brautkleid bleibt Brautkleid und Blaukraut bleibt Blaukraut."
+  },
+  {
+    "language": "German",
+    "theme": "Jokes",
+    "difficulty": "Advanced",
+    "tongue_twister": "Zehn zahme Ziegen zogen zehn Zentner Zucker zum Zoo."
+  },
+  {
+    "language": "German",
+    "theme": "Poems",
+    "difficulty": "Basic",
+    "tongue_twister": "Zwischen zwei Zwetschgenzweigen zwitschern zwei Schwalben."
+  },
+  {
+    "language": "German",
+    "theme": "Poems",
+    "difficulty": "Intermediate",
+    "tongue_twister": "Sieben Schneeschuh-Schnürsenkel-Schnürer schnürten sieben Schneeschuh-Schnürsenkel."
+  },
+  {
+    "language": "German",
+    "theme": "Poems",
+    "difficulty": "Advanced",
+    "tongue_twister": "In Ulm und um Ulm und um Ulm herum."
+  },
+  {
+    "language": "German",
+    "theme": "For Kids",
+    "difficulty": "Basic",
+    "tongue_twister": "Der dicke Dachdecker deckte das dicke Dach. Dann trug der dicke Dachdecker, die dicke Dame durch den dicken Dreck."
+  },
+  {
+    "language": "German",
+    "theme": "For Kids",
+    "difficulty": "Intermediate",
+    "tongue_twister": "Wenn Fliegen hinter Fliegen fliegen, fliegen Fliegen Fliegen nach."
+  },
+  {
+    "language": "German",
+    "theme": "For Kids",
+    "difficulty": "Advanced",
+    "tongue_twister": "Der Whiskymixer mixt den Whisky."
+  }
+]

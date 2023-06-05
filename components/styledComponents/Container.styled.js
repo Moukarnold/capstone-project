@@ -42,3 +42,6 @@ export const InnereBox = styled.div`
 export const SpaceLabel = styled.span`
   margin-left: 8px;
 `;
+/*const StyledLink = styled(Link)`
+  box-shadow: 10px 5px 5px gray;
+`;  */
