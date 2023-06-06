@@ -1,5 +1,5 @@
 import { useState } from "react";
-import twisters from "/public/twisters";
+//import twisters from "/public/twisters";
 import Languages from "@/components/languages/Languages";
 import Themes from "@/components/themes/Themes";
 import Difficulty from "@/components/difficulty/Difficulty";

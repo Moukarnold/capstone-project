@@ -17,8 +17,8 @@ export default async function createAnswer(prompt) {
         content: `
         Perform the following tPerform the following task:
         -Just write the tongue twister.
--Do not comment on the tongue twisters.
-- show more imagination
+        -Do not comment on the tongue twisters.
+       - show more imagination 
 -Don't present the same tongue twister more than 2 times in less than 3 hours.
 -All the tongue twisters you will generate are intended to help people with speech problems.
 -Please write tongue twisters exclusively in the selected language: ${prompt.language}.
