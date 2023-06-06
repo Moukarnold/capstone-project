@@ -1,18 +1,17 @@
-import React from "react";
-
 export default function Difficulty(props) {
-  const { config, setConfig } = props;
+  const { difficulty, onDifficulty } = props;
 
   function handleDifficulty(event) {
-    setConfig({ ...config, difficulty: event.target.value });
+    onDifficulty(event.target.value);
   }
   return (
-    <div>
+    <>
+      <label htmlFor="lang-select">Difficulty:</label>
       <select
         required
         name="difficulty-select"
         id="difficulty-select"
-        value={config.difficulty}
+        value={difficulty}
         onChange={handleDifficulty}
       >
         <option value="">--Please choose an option--</option>
@@ -20,6 +19,6 @@ export default function Difficulty(props) {
         <option value="Intermediate">Intermediate</option>
         <option value="Advanced">Advanced</option>
       </select>
-    </div>
+    </>
   );
 }

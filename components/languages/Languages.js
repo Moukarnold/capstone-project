@@ -1,26 +1,25 @@
-import React from "react";
-
 export default function Languages(props) {
-  const { config, setConfig } = props;
+  const { language, onLanguage } = props;
 
-  function handleLanguages(event) {
-    setConfig({ ...config, language: event.target.value });
+  function handleLanguage(event) {
+    onLanguage(event.target.value);
   }
 
   return (
-    <div>
+    <>
+      <label htmlFor="lang-select">Language:</label>
       <select
         required
         name="lang-select"
         id="lang-select"
-        value={config.language}
-        onChange={handleLanguages}
+        value={language}
+        onChange={handleLanguage}
       >
         <option value="">--Please choose an option--</option>
         <option value="English">English</option>
         <option value="French">French</option>
         <option value="German">German</option>
       </select>
-    </div>
+    </>
   );
 }

@@ -1,10 +1,8 @@
 import { useState } from "react";
-//import twisters from "/public/twisters";
 import Languages from "@/components/languages/Languages";
 import Themes from "@/components/themes/Themes";
 import Difficulty from "@/components/difficulty/Difficulty";
 import { ContainerMain } from "@/components/styledComponents/Container.styled";
-//import { Router } from "next/router";
 
 export default function HomePage() {
   const [config, setConfig] = useState({
@@ -13,17 +11,19 @@ export default function HomePage() {
     difficulty: "",
   });
 
-  /* // call from json file
-  const selectedTwister = twisters.find((twister) => {
-    return (
-      twister.language === config.language &&
-      twister.theme === config.theme &&
-      twister.difficulty === config.difficulty
-    );
-  });*/
   // call from openai
   const [answer, setAnswer] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  function handleNewLanguage(language) {
+    setConfig({ ...config, language });
+  }
+  function handleNewTheme(theme) {
+    setConfig({ ...config, theme });
+  }
+  function handleNewDifficulty(difficulty) {
+    setConfig({ ...config, difficulty });
+  }
 
   async function fetcher(data) {
     setLoading(true);
@@ -38,12 +38,6 @@ export default function HomePage() {
         const result = await response.json();
         setAnswer(result);
         console.log(result);
-        /*   Router.push({
-          pathname: "/twisterPage",
-          query: {
-            answer: result.answer.content 
-          },
-        });*/
       } else {
         console.error("Bad Response");
       }
@@ -53,6 +47,7 @@ export default function HomePage() {
       setLoading(false);
     }
   }
+
   function handleSubmit(event) {
     event.preventDefault();
     fetcher(config);
@@ -62,13 +57,12 @@ export default function HomePage() {
     <>
       <ContainerMain>
         <h2> tongue twister</h2>
-        <label htmlFor="lang-select">Language:</label>
-        <Languages config={config} setConfig={setConfig} />
-        <label htmlFor="lang-select">Theme:</label>
-        <Themes config={config} setConfig={setConfig} />
-        <label htmlFor="lang-select">Difficulty:</label>
-        <Difficulty config={config} setConfig={setConfig} />
-
+        <Languages config={config.config} onLanguage={handleNewLanguage} />
+        <Themes theme={config.theme} onTheme={handleNewTheme} />
+        <Difficulty
+          difficulty={config.difficulty}
+          onDifficulty={handleNewDifficulty}
+        />
         <form onSubmit={handleSubmit}>
           <button type="submit" disabled={loading}>
             {loading ? "Loading..." : "Get Answer"}
@@ -80,8 +74,6 @@ export default function HomePage() {
         {/* answer from openai */}
         {answer && <p>{answer.answer.content}</p>}
       </div>
-      {/* answer from json file 
-      {selectedTwister?.tongue_twister}*/}
     </>
   );
 }
