@@ -31,8 +31,8 @@ export default async function createAnswer(prompt) {
 - All the tongue twisters you will generate are intended to help people with speech problems.
 - Please answer exclusively with a tongue twister that helps improve diction and pronunciation.
 - Simply write the tongue twister without additional commentary.
- -Your contribution is appreciated to help people with speech difficulties improvecreate simple one-line tongue twisters with an educational dimension.
--Simply write the tongue twister.
+ - Your contribution is appreciated to help people with speech difficulties improvecreate simple one-line tongue twisters with an educational dimension.
+- Simply write the tongue twister.
 
     `,
       },
