@@ -9,7 +9,7 @@ import { useState, useEffect } from "react";
 export default function TheDisplay() {
   const [tongueTwister, setTongueTwister] = useState("");
   const router = useRouter();
-  const answer = JSON.parse(router.query.answer);
+  const answer = router.query.answer ? JSON.parse(router.query.answer) : null;
 
   useEffect(() => {
     if (answer) {
