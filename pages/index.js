@@ -1,59 +1,79 @@
-import { ContainerMain } from "@/components/styledComponents/Container.styled";
-import Link from "next/link";
 import { useState } from "react";
-import styled from "styled-components";
-import PageLanguage from "../components/language/languages";
-import PageLevel from "../components/level/level";
-import PageOptions from "../components/options/options";
-import { useEffect } from "react";
+import Languages from "@/components/languages/Languages";
+import Themes from "@/components/themes/Themes";
+import Difficulty from "@/components/difficulty/Difficulty";
+import { ContainerMain } from "@/components/styledComponents/Container.styled";
 
 export default function HomePage() {
-  const [selectedLanguage, setSelectedLanguage] = useState("English");
-  const [selectedOptions, setSelectedOptions] = useState(
-    "Simple Sentences & For Kids"
-  );
-  const [selectedLevels, setSelectedLevels] = useState("Basic");
-  //const [frenchText, setFrenchText] = useState("");
+  const [config, setConfig] = useState({
+    language: "",
+    theme: "",
+    difficulty: "",
+  });
 
-  function handleNext() {
-    /*  fetch("french.json")
-      .then((res) => res.json())
-      .then((data) => console.log(data));*/
+  // call from openai
+  const [answer, setAnswer] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  function handleNewLanguage(language) {
+    setConfig({ ...config, language });
+  }
+  function handleNewTheme(theme) {
+    setConfig({ ...config, theme });
+  }
+  function handleNewDifficulty(difficulty) {
+    setConfig({ ...config, difficulty });
   }
 
-  function handleOption(option) {
-    setSelectedOptions(option);
-    console.log("option est " + option);
-  }
-  function handLeLevel(level) {
-    setSelectedLevels(level);
-    console.log("  Level est" + level);
+  async function fetcher(data) {
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/gpt", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        const result = await response.json();
+        setAnswer(result);
+        console.log(result);
+      } else {
+        console.error("Bad Response");
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   }
 
-  function handleLanguage(language) {
-    setSelectedLanguage(language);
-    console.log(" language est " + language);
+  function handleSubmit(event) {
+    event.preventDefault();
+    fetcher(config);
   }
 
   return (
     <>
       <ContainerMain>
-        <h2> Homepage</h2>
-        <h2> Text Language </h2>
-        <PageLanguage handleLanguage={handleLanguage} />
-        <h2> Text Option</h2>
-        <PageOptions handleOption={handleOption} />
-        <h2> Text Level </h2>
-        <PageLevel handLeLevel={handLeLevel} />
-        <StyledLink href={"/folgePage"} onClick={handleNext}>
-          {" "}
-          Next
-        </StyledLink>
+        <h2> tongue twister</h2>
+        <Languages config={config.config} onLanguage={handleNewLanguage} />
+        <Themes theme={config.theme} onTheme={handleNewTheme} />
+        <Difficulty
+          difficulty={config.difficulty}
+          onDifficulty={handleNewDifficulty}
+        />
+        <form onSubmit={handleSubmit}>
+          <button type="submit" disabled={loading}>
+            {loading ? "Loading..." : "Get Answer"}
+          </button>
+        </form>
       </ContainerMain>
+      <div>
+        {loading && <p>loading...</p>}
+        {/* answer from openai */}
+        {answer && <p>{answer.answer.content}</p>}
+      </div>
     </>
   );
 }
-
-const StyledLink = styled(Link)`
-  box-shadow: 10px 5px 5px gray;
-`;
