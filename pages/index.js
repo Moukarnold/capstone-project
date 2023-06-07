@@ -3,6 +3,8 @@ import Languages from "@/components/languages/Languages";
 import Themes from "@/components/themes/Themes";
 import Difficulty from "@/components/difficulty/Difficulty";
 import { ContainerMain } from "@/components/styledComponents/Container.styled";
+import { useRouter } from "next/router";
+import theDisplay from "./theDisplay";
 
 export default function HomePage() {
   const [config, setConfig] = useState({
@@ -10,6 +12,7 @@ export default function HomePage() {
     theme: "",
     difficulty: "",
   });
+  const router = useRouter();
 
   // call from openai
   const [answer, setAnswer] = useState(null);
@@ -37,7 +40,6 @@ export default function HomePage() {
       if (response.ok) {
         const result = await response.json();
         setAnswer(result);
-        console.log(result);
       } else {
         console.error("Bad Response");
       }
@@ -49,6 +51,7 @@ export default function HomePage() {
   }
 
   function handleSubmit(event) {
+    router.push("/theDisplay");
     event.preventDefault();
     fetcher(config);
   }
@@ -57,7 +60,7 @@ export default function HomePage() {
     <>
       <ContainerMain>
         <h2> tongue twister</h2>
-        <Languages config={config.config} onLanguage={handleNewLanguage} />
+        <Languages language={config.language} onLanguage={handleNewLanguage} />
         <Themes theme={config.theme} onTheme={handleNewTheme} />
         <Difficulty
           difficulty={config.difficulty}
