@@ -1,12 +1,26 @@
-import { ContainerMain } from "@/components/styledComponents/Container.styled";
+import {
+  ContainerMain,
+  InnereBox,
+} from "@/components/styledComponents/Container.styled";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
-export default function theDisplay() {
-  const tongueTwister = [];
+export default function TheDisplay() {
+  const [tongueTwister, setTongueTwister] = useState("");
+  const router = useRouter();
+  const answer = JSON.parse(router.query.answer);
+
+  useEffect(() => {
+    if (answer) {
+      setTongueTwister(answer.answer.content);
+    }
+  }, [answer]);
   return (
     <ContainerMain>
-      <div></div>
-      <button>refresh</button>
-      <button> return</button>
+      <InnereBox>{tongueTwister && <p>{tongueTwister}</p>}</InnereBox>
+      <button>Refresh</button>
+      <Link href={"/"}>Return</Link>
     </ContainerMain>
   );
 }
