@@ -7,8 +7,6 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export default async function createAnswer(prompt) {
-  console.log(prompt);
-
   const response = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     temperature: 1,
