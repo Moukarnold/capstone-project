@@ -26,9 +26,9 @@ export const Box = styled.div`
   align-items: center;
 `;
 
-export const InnereBox = styled.div`
+export const ScreenBox = styled.div`
   //background-color: pink;
-  height: 350px;
+  height: 200px;
   width: 400px;
   border: 2px solid;
   border-radius: 10px;
@@ -38,6 +38,8 @@ export const InnereBox = styled.div`
   align-items: center;
   margin-bottom: 10%;
   margin-top: 5%;
+  box-shadow: 10px 5px 5px gray;
+  text-align: center;
 `;
 export const SpaceLabel = styled.span`
   margin-left: 8px;

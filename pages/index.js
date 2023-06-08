@@ -41,7 +41,7 @@ export default function HomePage() {
         setAnswer(result);
         router.push({
           pathname: "/theDisplay",
-          query: { answer: JSON.stringify(result) },
+          query: { answer: JSON.stringify(result), ...config },
         });
       } else {
         console.error("Bad Response");
@@ -60,13 +60,10 @@ export default function HomePage() {
   return (
     <>
       <ContainerMain>
-        <h2> tongue twister</h2>
-        <Languages config={config.language} onLanguage={handleNewLanguage} />
-        <Themes theme={config.theme} onTheme={handleNewTheme} />
-        <Difficulty
-          difficulty={config.difficulty}
-          onDifficulty={handleNewDifficulty}
-        />
+        <h2>Tongue Twister</h2>
+        <Languages onLanguage={handleNewLanguage} />
+        <Themes onTheme={handleNewTheme} />
+        <Difficulty onDifficulty={handleNewDifficulty} />
         <form onSubmit={handleSubmit}>
           <button type="submit" disabled={loading}>
             {loading ? "Loading..." : "Get Answer"}
@@ -74,7 +71,7 @@ export default function HomePage() {
         </form>
       </ContainerMain>
       <div>
-        {loading && <p>loading...</p>}
+        {loading && <p>Loading...</p>}
         {/* answer from openai */}
         {answer && <p>{answer.answer.content}</p>}
       </div>

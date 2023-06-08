@@ -1,6 +1,6 @@
 import {
   ContainerMain,
-  InnereBox,
+  ScreenBox,
 } from "@/components/styledComponents/Container.styled";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -10,6 +10,7 @@ export default function TheDisplay() {
   const [tongueTwister, setTongueTwister] = useState("");
   const router = useRouter();
   const answer = router.query.answer ? JSON.parse(router.query.answer) : null;
+  const { language, theme, difficulty } = router.query;
 
   useEffect(() => {
     if (answer) {
@@ -17,23 +18,26 @@ export default function TheDisplay() {
     }
   }, [answer]);
 
-  function handleRefresh() {
-    fetchNewTongueTwister();
-  }
-
   async function fetchNewTongueTwister() {
     try {
       const response = await fetch("/api/gpt", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({}),
+        body: JSON.stringify({ language, theme, difficulty }),
       });
+
       if (response.ok) {
         const result = await response.json();
         router.push({
           pathname: "/theDisplay",
-          query: { answer: JSON.stringify(result) },
+          query: {
+            answer: JSON.stringify(result),
+            language,
+            theme,
+            difficulty,
+          },
         });
+        setTongueTwister(result.answer.content);
       } else {
         console.error("Bad Response");
       }
@@ -42,9 +46,13 @@ export default function TheDisplay() {
     }
   }
 
+  function handleRefresh() {
+    fetchNewTongueTwister();
+  }
+
   return (
     <ContainerMain>
-      <InnereBox>{tongueTwister && <p>{tongueTwister}</p>}</InnereBox>
+      <ScreenBox>{tongueTwister && <p>{tongueTwister}</p>}</ScreenBox>
       <button onClick={handleRefresh}>Refresh</button>
       <Link href={"/"}>Return</Link>
     </ContainerMain>
