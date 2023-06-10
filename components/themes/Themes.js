@@ -7,7 +7,7 @@ export default function Themes(props) {
 
   return (
     <>
-      <label htmlFor="lang-select">theme:</label>
+      <label htmlFor="theme-select">theme:</label>
       <select
         required
         name="theme-select"
