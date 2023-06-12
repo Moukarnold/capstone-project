@@ -34,7 +34,7 @@ export default function HomePage() {
       <Themes onTheme={handleNewTheme} />
       <Difficulty onDifficulty={handleNewDifficulty} />
       <form onSubmit={handleSubmit}>
-        <button type="submit">Obtenir une réponse</button>
+        <button type="submit">Get Answer</button>
       </form>
     </ContainerMain>
   );
