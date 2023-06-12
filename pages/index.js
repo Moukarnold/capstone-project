@@ -1,16 +1,13 @@
-import { useState } from "react";
+import { useContext } from "react";
 import Languages from "@/components/languages/Languages";
 import Themes from "@/components/themes/Themes";
 import Difficulty from "@/components/difficulty/Difficulty";
 import { ContainerMain } from "@/components/styledComponents/Container.styled";
 import { useRouter } from "next/router";
+import { ConfigContext } from "@/contexts/ConfigContext";
 
 export default function HomePage() {
-  const [config, setConfig] = useState({
-    language: "",
-    theme: "",
-    difficulty: "",
-  });
+  const { config, setConfig } = useContext(ConfigContext);
   const router = useRouter();
 
   function handleNewLanguage(language) {
@@ -27,10 +24,7 @@ export default function HomePage() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    router.push({
-      pathname: "/screening",
-      query: config,
-    });
+    router.push("/screening");
   }
 
   return (

@@ -1,5 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
-import { useRouter } from "next/router";
+import { useEffect, useState, useCallback, useContext } from "react";
 import Link from "next/link";
 import {
   Box,
@@ -9,19 +8,19 @@ import {
 } from "@/components/styledComponents/Container.styled";
 import Image from "next/image";
 import styled from "styled-components";
+import { ConfigContext } from "@/contexts/ConfigContext";
 
 export default function ScreeningPage() {
+  const { config } = useContext(ConfigContext);
   const [isLoading, setIsLoading] = useState(true);
   const [tongueTwister, setTongueTwister] = useState("");
-  const router = useRouter();
-  const { language, theme, difficulty } = router.query;
 
   const fetchTongueTwister = useCallback(async () => {
     try {
       const response = await fetch("/api/gpt", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ language, theme, difficulty }),
+        body: JSON.stringify(config),
       });
 
       if (response.ok) {
@@ -35,17 +34,15 @@ export default function ScreeningPage() {
     }
 
     setIsLoading(false);
-  }, [language, theme, difficulty]);
+  }, [config]);
 
   useEffect(() => {
-    // look if the parameters are avalaible
-    if (language && theme && difficulty) {
+    if (config.language && config.theme && config.difficulty) {
       fetchTongueTwister();
     } else {
-      // if no the use is redirect at the homepage
       router.push("/");
     }
-  }, [fetchTongueTwister, language, theme, difficulty, router]);
+  }, [fetchTongueTwister, config]);
 
   function handleRefresh() {
     fetchTongueTwister();
