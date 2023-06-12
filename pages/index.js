@@ -1,4 +1,3 @@
-// pages/index.js
 import { useState } from "react";
 import Languages from "@/components/languages/Languages";
 import Themes from "@/components/themes/Themes";

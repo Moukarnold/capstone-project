@@ -19,6 +19,7 @@ export default async function createAnswer(prompt) {
 -Respect the style and genre of the selected tongue twisters: ${prompt.theme}.
 -The difficulty level should be: ${prompt.difficulty}.
 -  you are not authorised to translate a generated sentence.
+-if the translation gives a virelange do not display the translation
 -If the style or genre is "poem", please generate a 3-line tongue twister.
 - If the theme is "jokes", create a one-line tongue twister.
 - If the theme is "advanced", suggest tongue twisters with complicated syntax.

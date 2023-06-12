@@ -1,8 +1,8 @@
-// pages/theDisplay.js
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import {
+  Box,
   ButtonContainer,
   ContainerMain,
   ScreenBox,
@@ -11,6 +11,7 @@ import Image from "next/image";
 import styled from "styled-components";
 
 export default function ScreeningPage() {
+  const [isLoading, setIsLoading] = useState(true);
   const [tongueTwister, setTongueTwister] = useState("");
   const router = useRouter();
   const { language, theme, difficulty } = router.query;
@@ -32,13 +33,19 @@ export default function ScreeningPage() {
     } catch (error) {
       console.error(error);
     }
+
+    setIsLoading(false);
   }, [language, theme, difficulty]);
 
   useEffect(() => {
+    // look if the parameters are avalaible
     if (language && theme && difficulty) {
       fetchTongueTwister();
+    } else {
+      // if no the use is redirect at the homepage
+      router.push("/");
     }
-  }, [fetchTongueTwister, language, theme, difficulty]);
+  }, [fetchTongueTwister, language, theme, difficulty, router]);
 
   function handleRefresh() {
     fetchTongueTwister();
@@ -49,15 +56,22 @@ export default function ScreeningPage() {
       <ButtonContainer>
         <StyledImage src="/pic/icons8.png" alt="" width={30} height={30} />
       </ButtonContainer>
-      <ScreenBox>{tongueTwister && <p>{tongueTwister}</p>}</ScreenBox>
+
+      <ScreenBox>
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <Box>{tongueTwister && <p>{tongueTwister}</p>}</Box>
+        )}
+      </ScreenBox>
       <button onClick={handleRefresh}>Refresh</button>
-      <Link href={"/"}>Return</Link>
+      <Link href="/">Return</Link>
     </ContainerMain>
   );
 }
 
 const StyledImage = styled(Image)`
-  margin-right: -390px;
-  margin-bottom: px;
+  margin-right: -425px;
+  margin-bottom: -100px;
   box-shadow: 10px 5px 5px;
 `;
