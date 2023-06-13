@@ -37,12 +37,8 @@ export default function ScreeningPage() {
   }, [config]);
 
   useEffect(() => {
-    if (config.language && config.theme && config.difficulty) {
-      fetchTongueTwister();
-    } else {
-      router.push("/");
-    }
-  }, [fetchTongueTwister, config]);
+    fetchTongueTwister();
+  }, [fetchTongueTwister]);
 
   function handleRefresh() {
     fetchTongueTwister();

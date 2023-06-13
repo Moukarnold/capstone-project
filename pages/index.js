@@ -5,6 +5,7 @@ import Difficulty from "@/components/difficulty/Difficulty";
 import { ContainerMain } from "@/components/styledComponents/Container.styled";
 import { useRouter } from "next/router";
 import { ConfigContext } from "@/contexts/ConfigContext";
+import { ContainerForm } from "@/components/styledComponents/Container.styled";
 
 export default function HomePage() {
   const { config, setConfig } = useContext(ConfigContext);
@@ -29,13 +30,13 @@ export default function HomePage() {
 
   return (
     <ContainerMain>
-      <h2>Virelangue</h2>
-      <Languages onLanguage={handleNewLanguage} />
-      <Themes onTheme={handleNewTheme} />
-      <Difficulty onDifficulty={handleNewDifficulty} />
-      <form onSubmit={handleSubmit}>
+      <h2>Tonguy Twisty</h2>
+      <ContainerForm onSubmit={handleSubmit}>
+        <Languages onLanguage={handleNewLanguage} />
+        <Themes onTheme={handleNewTheme} />
+        <Difficulty onDifficulty={handleNewDifficulty} />
         <button type="submit">Get Answer</button>
-      </form>
+      </ContainerForm>
     </ContainerMain>
   );
 }

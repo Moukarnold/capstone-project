@@ -16,7 +16,7 @@ export default function Themes(props) {
         onChange={handleTheme}
       >
         <option value="">--Please choose an option--</option>
-        <option value="Poems">Poems</option>
+        <option value="Poems"> Poems</option>
         <option value="Jokes">Jokes</option>
         <option value="For Kids">For Kids</option>
       </select>
