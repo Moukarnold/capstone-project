@@ -16,9 +16,9 @@ export default function Languages(props) {
         onChange={handleLanguage}
       >
         <option value="">--Please choose an option--</option>
-        <option value="English">English</option>
-        <option value="French">French</option>
-        <option value="German">German</option>
+        <option value="English"> 🇬🇧 English</option>
+        <option value="French"> 🇫🇷 French</option>
+        <option value="German"> 🇩🇪 German</option>
       </select>
     </>
   );

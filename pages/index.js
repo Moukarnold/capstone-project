@@ -1,79 +1,42 @@
-import { useState } from "react";
+import { useContext } from "react";
 import Languages from "@/components/languages/Languages";
 import Themes from "@/components/themes/Themes";
 import Difficulty from "@/components/difficulty/Difficulty";
 import { ContainerMain } from "@/components/styledComponents/Container.styled";
+import { useRouter } from "next/router";
+import { ConfigContext } from "@/contexts/ConfigContext";
+import { ContainerForm } from "@/components/styledComponents/Container.styled";
 
 export default function HomePage() {
-  const [config, setConfig] = useState({
-    language: "",
-    theme: "",
-    difficulty: "",
-  });
-
-  // call from openai
-  const [answer, setAnswer] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const { config, setConfig } = useContext(ConfigContext);
+  const router = useRouter();
 
   function handleNewLanguage(language) {
-    setConfig({ ...config, language });
+    setConfig((prevState) => ({ ...prevState, language }));
   }
+
   function handleNewTheme(theme) {
-    setConfig({ ...config, theme });
+    setConfig((prevState) => ({ ...prevState, theme }));
   }
+
   function handleNewDifficulty(difficulty) {
-    setConfig({ ...config, difficulty });
-  }
-
-  async function fetcher(data) {
-    setLoading(true);
-
-    try {
-      const response = await fetch("/api/gpt", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (response.ok) {
-        const result = await response.json();
-        setAnswer(result);
-        console.log(result);
-      } else {
-        console.error("Bad Response");
-      }
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
+    setConfig((prevState) => ({ ...prevState, difficulty }));
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetcher(config);
+    router.push("/screening");
   }
 
   return (
-    <>
-      <ContainerMain>
-        <h2> tongue twister</h2>
-        <Languages config={config.config} onLanguage={handleNewLanguage} />
-        <Themes theme={config.theme} onTheme={handleNewTheme} />
-        <Difficulty
-          difficulty={config.difficulty}
-          onDifficulty={handleNewDifficulty}
-        />
-        <form onSubmit={handleSubmit}>
-          <button type="submit" disabled={loading}>
-            {loading ? "Loading..." : "Get Answer"}
-          </button>
-        </form>
-      </ContainerMain>
-      <div>
-        {loading && <p>loading...</p>}
-        {/* answer from openai */}
-        {answer && <p>{answer.answer.content}</p>}
-      </div>
-    </>
+    <ContainerMain>
+      <h2>Tonguy Twisty</h2>
+      <ContainerForm onSubmit={handleSubmit}>
+        <Languages onLanguage={handleNewLanguage} />
+        <Themes onTheme={handleNewTheme} />
+        <Difficulty onDifficulty={handleNewDifficulty} />
+        <button type="submit">Get Answer</button>
+      </ContainerForm>
+    </ContainerMain>
   );
 }
