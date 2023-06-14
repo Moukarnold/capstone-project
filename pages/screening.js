@@ -2,6 +2,9 @@ import { useEffect, useState, useCallback, useContext } from "react";
 import Link from "next/link";
 import {
   Box,
+  Box1,
+  ScreenBox1,
+  Navbar,
   ButtonContainer,
   ContainerMain,
   ScreenBox,
@@ -9,11 +12,21 @@ import {
 import Image from "next/image";
 import styled from "styled-components";
 import { ConfigContext } from "@/contexts/ConfigContext";
+import { setupAnnyang } from "@/utils/annyangConfig";
+import TongueTwisterComponent from "@/components/TongueTwisterCoponent/tongueTwisterComponent";
+import TranscriptionComponent from "@/components/transcriptionComponent/TranscriptionComponent";
+import RecordingComponent from "@/components/recordingComponent/RecordingComponent";
+import StarRecordinfComponent from "@/components/startRecordingComponent/StarRecordinfComponent";
 
 export default function ScreeningPage() {
   const { config } = useContext(ConfigContext);
   const [isLoading, setIsLoading] = useState(true);
   const [tongueTwister, setTongueTwister] = useState("");
+  const [transcription, setTranscription] = useState("");
+  const [isRecording, setIsRecording] = useState(false);
+  const [recordingTime, setRecordingTime] = useState(0);
+  const [startTime, setStartTime] = useState(null);
+  const [isStarted, setIsStarted] = useState(false);
 
   const fetchTongueTwister = useCallback(async () => {
     try {
@@ -44,27 +57,89 @@ export default function ScreeningPage() {
     fetchTongueTwister();
   }
 
+  function handleStartRecording(language) {
+    setIsStarted(true);
+    setIsRecording(true);
+    setRecordingTime(0);
+    setTranscription("");
+    setStartTime(Date.now());
+    annyang.abort();
+    annyang.setLanguage(language);
+    annyang.start();
+  }
+
+  function handleStopRecording() {
+    setIsRecording(false);
+    setStartTime(null);
+    annyang.abort();
+  }
+
+  function handleResetRecording() {
+    setTranscription("");
+  }
+
+  function handleTranscription(transcript) {
+    if (isStarted && isRecording) {
+      setTranscription(transcript);
+    }
+  }
+
+  useEffect(() => {
+    const handleTranscription = (transcript) => {
+      setTranscription(transcript);
+    };
+
+    setupAnnyang(handleTranscription);
+
+    let intervalId;
+
+    if (isRecording && startTime !== null) {
+      intervalId = setInterval(() => {
+        const currentTime = Date.now();
+        const elapsedTime = Math.floor((currentTime - startTime) / 1000);
+        setRecordingTime(elapsedTime);
+      }, 1000);
+    }
+
+    return () => {
+      clearInterval(intervalId);
+      annyang.abort();
+    };
+  }, [isRecording, startTime]);
+
   return (
     <ContainerMain>
-      <ButtonContainer>
-        <StyledImage src="/pic/icons8.png" alt="" width={30} height={30} />
-      </ButtonContainer>
-
       <ScreenBox>
         {isLoading ? (
           <p>Loading...</p>
         ) : (
-          <Box>{tongueTwister && <p>{tongueTwister}</p>}</Box>
+          <TongueTwisterComponent tongueTwister={tongueTwister} />
         )}
       </ScreenBox>
-      <button onClick={handleRefresh}>Refresh</button>
+      <Navbar>
+        <button onClick={handleRefresh}>Refresh</button>
+      </Navbar>
+      <ScreenBox1>
+        <Box1>
+          <h3>Transcription</h3>
+          <TranscriptionComponent transcription={transcription} />{" "}
+        </Box1>
+      </ScreenBox1>
+
+      {isRecording ? (
+        <RecordingComponent
+          recordingTime={recordingTime}
+          handleStopRecording={handleStopRecording}
+        />
+      ) : (
+        <StarRecordinfComponent handleStartRecording={handleStartRecording} />
+      )}
+
+      <button type="button" onClick={handleResetRecording}>
+        Reset
+      </button>
+
       <Link href="/">Return</Link>
     </ContainerMain>
   );
 }
-
-const StyledImage = styled(Image)`
-  margin-right: -425px;
-  margin-bottom: -100px;
-  box-shadow: 10px 5px 5px;
-`;

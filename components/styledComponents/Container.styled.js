@@ -41,6 +41,13 @@ export const Navbar = styled.div`
   border: solid 2px;
 `;
 
+export const Navbar1 = styled.div`
+  height: 40px;
+  width: 440px;
+  border-radius: 10px;
+  border: solid 2px;
+`;
+
 export const Box1 = styled.div`
   //position: absolute;
   display: flex;
