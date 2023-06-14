@@ -7,12 +7,12 @@ import {
   ScreenBox,
   ScreenBox1,
 } from "@/components/styledComponents/Container.styled";
-import TongueTwisterComponent from "@/components/tongueTwisterComponent/TongueTwisterComponent";
 import TranscriptionComponent from "@/components/transcriptionComponent/TranscriptionComponent";
 import { ConfigContext } from "@/contexts/ConfigContext";
 import { setupAnnyang } from "@/utils/annyangConfig";
 import Link from "next/link";
 import { useCallback, useContext, useEffect, useState } from "react";
+import TongueTwisterComponent from "@/components/tongueTwisterComponent";
 
 export default function ScreeningPage() {
   const { config } = useContext(ConfigContext);
