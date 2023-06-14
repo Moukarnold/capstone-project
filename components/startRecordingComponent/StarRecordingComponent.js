@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function StarRecordinfComponent({ handleStartRecording }) {
+export default function StarRecordingComponent({ handleStartRecording }) {
   return (
     <div>
       <>

@@ -1,5 +1,5 @@
 import RecordingComponent from "@/components/recordingComponent/RecordingComponent";
-import StarRecordinfComponent from "@/components/startRecordingComponent/StarRecordinfComponent";
+import StarRecordingComponent from "@/components/startRecordingComponent/StarRecordingComponent";
 import {
   Box1,
   ContainerMain,
@@ -130,7 +130,7 @@ export default function ScreeningPage() {
           handleStopRecording={handleStopRecording}
         />
       ) : (
-        <StarRecordinfComponent handleStartRecording={handleStartRecording} />
+        <StarRecordingComponent handleStartRecording={handleStartRecording} />
       )}
 
       <button type="button" onClick={handleResetRecording}>
