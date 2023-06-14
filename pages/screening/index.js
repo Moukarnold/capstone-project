@@ -77,12 +77,14 @@ export default function ScreeningPage() {
   function handleTranscription(transcript) {
     if (isStarted && isRecording) {
       setTranscription(transcript);
+      console.log("transcritiom", transcription);
     }
   }
 
   useEffect(() => {
     const handleTranscription = (transcript) => {
       setTranscription(transcript);
+      console.log("transcript", transcript);
     };
 
     setupAnnyang(handleTranscription);
