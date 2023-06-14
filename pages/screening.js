@@ -107,7 +107,7 @@ export default function ScreeningPage() {
     <ContainerMain>
       <ScreenBox>
         {isLoading ? (
-          <p>Loading...</p>
+          <p> Loading...</p>
         ) : (
           <TongueTwisterComponent tongueTwister={tongueTwister} />
         )}
