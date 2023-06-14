@@ -1,4 +1,4 @@
-import TongueTwisterComponent from "@/components/TongueTwisterCoponent/tongueTwisterComponent";
+import TongueTwisterComponent from "@/components/tongueTwisterComponent/TongueTwisterComponent";
 import RecordingComponent from "@/components/recordingComponent/RecordingComponent";
 import StarRecordinfComponent from "@/components/startRecordingComponent/StarRecordinfComponent";
 import {
