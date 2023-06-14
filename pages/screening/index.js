@@ -1,28 +1,22 @@
-import RecordingComponent from "@/components/recordingComponent/RecordingComponent";
-import StarRecordingComponent from "@/components/startRecordingComponent/StarRecordingComponent";
-import {
-  Box1,
-  ContainerMain,
-  Navbar,
-  ScreenBox,
-  ScreenBox1,
-} from "@/components/styledComponents/Container.styled";
-import TranscriptionComponent from "@/components/transcriptionComponent/TranscriptionComponent";
-import { ConfigContext } from "@/contexts/ConfigContext";
-import { setupAnnyang } from "@/utils/annyangConfig";
+import { useEffect, useState, useCallback, useContext } from "react";
 import Link from "next/link";
-import { useCallback, useContext, useEffect, useState } from "react";
-import TongueTwisterComponent from "@/components/tongueTwisterComponent";
+import {
+  Box,
+  Box1,
+  ScreenBox1,
+  Navbar,
+  ButtonContainer,
+  ContainerMain,
+  ScreenBox,
+} from "@/components/styledComponents/Container.styled";
+import { useSpeechRecognition } from "react-speech-recognition";
+import { ConfigContext } from "@/contexts/ConfigContext";
 
 export default function ScreeningPage() {
   const { config } = useContext(ConfigContext);
   const [isLoading, setIsLoading] = useState(true);
   const [tongueTwister, setTongueTwister] = useState("");
-  const [transcription, setTranscription] = useState("");
-  const [isRecording, setIsRecording] = useState(false);
-  const [recordingTime, setRecordingTime] = useState(0);
-  const [startTime, setStartTime] = useState(null);
-  const [isStarted, setIsStarted] = useState(false);
+  const [transcription, setTranscription] = useState(""); // État pour le texte de transcription
 
   const fetchTongueTwister = useCallback(async () => {
     try {
@@ -49,92 +43,63 @@ export default function ScreeningPage() {
     fetchTongueTwister();
   }, [fetchTongueTwister]);
 
-  function handleRefresh() {
+  const handleRefresh = () => {
     fetchTongueTwister();
-  }
+  };
 
-  function handleStartRecording(language) {
-    setIsStarted(true);
-    setIsRecording(true);
-    setRecordingTime(0);
-    setTranscription("");
-    setStartTime(Date.now());
-    annyang.abort();
-    annyang.setLanguage(language);
-    annyang.start();
-  }
+  const handleTranscription = (text) => {
+    setTranscription(text);
+  };
 
-  function handleStopRecording() {
-    setIsRecording(false);
-    setStartTime(null);
-    annyang.abort();
-  }
-
-  function handleResetRecording() {
-    setTranscription("");
-  }
-
-  function handleTranscription(transcript) {
-    if (isStarted && isRecording) {
-      setTranscription(transcript);
-      console.log("transcritiom", transcription);
-    }
-  }
+  const {
+    transcript,
+    listening,
+    startListening,
+    stopListening,
+    resetTranscript,
+  } = useSpeechRecognition();
 
   useEffect(() => {
-    const handleTranscription = (transcript) => {
-      setTranscription(transcript);
-      console.log("transcript", transcript);
-    };
-
-    setupAnnyang(handleTranscription);
-
-    let intervalId;
-
-    if (isRecording && startTime !== null) {
-      intervalId = setInterval(() => {
-        const currentTime = Date.now();
-        const elapsedTime = Math.floor((currentTime - startTime) / 1000);
-        setRecordingTime(elapsedTime);
-      }, 1000);
+    if (transcript) {
+      handleTranscription(transcript);
     }
+  }, [transcript]);
 
-    return () => {
-      clearInterval(intervalId);
-      annyang.abort();
-    };
-  }, [isRecording, startTime]);
+  const handleStartRecording = () => {
+    startListening();
+  };
+
+  const handleStopRecording = () => {
+    stopListening();
+    resetTranscript();
+  };
 
   return (
     <ContainerMain>
       <ScreenBox>
         {isLoading ? (
-          <p> Loading...</p>
+          <p>Loading...</p>
         ) : (
-          <TongueTwisterComponent tongueTwister={tongueTwister} />
+          <Box>{tongueTwister && <p>{tongueTwister}</p>}</Box>
         )}
       </ScreenBox>
       <Navbar>
-        <button onClick={handleRefresh}>Refresh</button>
+        <button type="button" onClick={handleRefresh}>
+          Refresh
+        </button>
       </Navbar>
       <ScreenBox1>
-        <Box1>
-          <h3>Transcription</h3>
-          <TranscriptionComponent transcription={transcription} />{" "}
-        </Box1>
+        <Box1>{transcription}</Box1>
       </ScreenBox1>
 
-      {isRecording ? (
-        <RecordingComponent
-          recordingTime={recordingTime}
-          handleStopRecording={handleStopRecording}
-        />
-      ) : (
-        <StarRecordingComponent handleStartRecording={handleStartRecording} />
-      )}
-
-      <button type="button" onClick={handleResetRecording}>
-        Reset
+      <button type="button" onClick={handleStartRecording}>
+        Start Recording in English
+      </button>
+      <button type="button" onClick={handleStopRecording}>
+        Stop Recording in French
+      </button>
+      <button type="button" onClick={handleStopRecording}>
+        Stop Recording in German
       </button>
 
       <Link href="/">Return</Link>
