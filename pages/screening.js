@@ -1,22 +1,18 @@
-import { useEffect, useState, useCallback, useContext } from "react";
-import Link from "next/link";
-import {
-  Box,
-  Box1,
-  ScreenBox1,
-  Navbar,
-  ButtonContainer,
-  ContainerMain,
-  ScreenBox,
-} from "@/components/styledComponents/Container.styled";
-import Image from "next/image";
-import styled from "styled-components";
-import { ConfigContext } from "@/contexts/ConfigContext";
-import { setupAnnyang } from "@/utils/annyangConfig";
 import TongueTwisterComponent from "@/components/TongueTwisterCoponent/tongueTwisterComponent";
-import TranscriptionComponent from "@/components/transcriptionComponent/TranscriptionComponent";
 import RecordingComponent from "@/components/recordingComponent/RecordingComponent";
 import StarRecordinfComponent from "@/components/startRecordingComponent/StarRecordinfComponent";
+import {
+  Box1,
+  ContainerMain,
+  Navbar,
+  ScreenBox,
+  ScreenBox1,
+} from "@/components/styledComponents/Container.styled";
+import TranscriptionComponent from "@/components/transcriptionComponent/TranscriptionComponent";
+import { ConfigContext } from "@/contexts/ConfigContext";
+import { setupAnnyang } from "@/utils/annyangConfig";
+import Link from "next/link";
+import { useCallback, useContext, useEffect, useState } from "react";
 
 export default function ScreeningPage() {
   const { config } = useContext(ConfigContext);
