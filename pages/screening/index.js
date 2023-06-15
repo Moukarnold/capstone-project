@@ -1,14 +1,20 @@
-import { useEffect, useState, useCallback, useContext } from "react";
-import Link from "next/link";
 import {
   Box,
-  ButtonContainer,
+  Box1,
   ContainerMain,
+  Navbar,
   ScreenBox,
+  ScreenBox1,
 } from "@/components/styledComponents/Container.styled";
-import Image from "next/image";
-import styled from "styled-components";
 import { ConfigContext } from "@/contexts/ConfigContext";
+import Link from "next/link";
+import { useCallback, useContext, useEffect, useState } from "react";
+//import Dictaphone from "@/components/dictaphone/Dictaphone";
+import dynamic from "next/dynamic";
+
+const Dictaphone = dynamic(() => import("@/components/dictaphone/Dictaphone"), {
+  ssr: false,
+});
 
 export default function ScreeningPage() {
   const { config } = useContext(ConfigContext);
@@ -46,25 +52,28 @@ export default function ScreeningPage() {
 
   return (
     <ContainerMain>
-      <ButtonContainer>
-        <StyledImage src="/pic/icons8.png" alt="" width={30} height={30} />
-      </ButtonContainer>
-
       <ScreenBox>
         {isLoading ? (
           <p>Loading...</p>
         ) : (
           <Box>{tongueTwister && <p>{tongueTwister}</p>}</Box>
         )}
+        <Navbar>
+          <button type="button" onClick={handleRefresh}>
+            Refresh
+          </button>
+        </Navbar>
       </ScreenBox>
-      <button onClick={handleRefresh}>Refresh</button>
-      <Link href="/">Return</Link>
+      <div>
+        {" "}
+        <h4> just before you start take a breath and read slowly</h4>
+      </div>
+
+      <Dictaphone language={config.language} />
+
+      <button type="button">Reset</button>
+
+      <Link href="/starting">Return</Link>
     </ContainerMain>
   );
 }
-
-const StyledImage = styled(Image)`
-  margin-right: -425px;
-  margin-bottom: -100px;
-  box-shadow: 10px 5px 5px;
-`;
