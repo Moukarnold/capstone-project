@@ -1,3 +1,5 @@
+import "regenerator-runtime/runtime";
+
 import GlobalStyle from "../styles";
 import Layout from "@/components/layout/Layout";
 import { ConfigProvider } from "@/contexts/ConfigContext";

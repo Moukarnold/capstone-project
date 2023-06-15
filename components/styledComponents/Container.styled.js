@@ -2,21 +2,7 @@ import styled from "styled-components";
 
 export const ContainerMain = styled.div`
   //position: relative;
-  height: 500px;
-  width: 500px;
-  border: solid 2px;
-  margin: auto;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  //padding: 2%;
-  justify-content: space-around;
-  align-items: center;
-`;
-
-export const ContainerForm = styled.form`
-  //position: relative;
-  height: 400px;
+  height: 560px;
   width: 500px;
   border: solid 2px;
   margin: auto;
@@ -26,6 +12,24 @@ export const ContainerForm = styled.form`
   padding: 2%;
   justify-content: space-around;
   align-items: center;
+  background-color: #d2ecf4;
+  border-radius: 20px;
+`;
+
+export const ContainerForm = styled.form`
+  //position: relative;
+  height: 400px;
+  width: 350px;
+  border: solid 2px #d4e6eb;
+  margin: auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #d4e6eb;
 `;
 export const ContainerMainLabel = styled.label`
   display: flex;
@@ -39,6 +43,8 @@ export const Navbar = styled.div`
   width: 440px;
   border-radius: 10px;
   border: solid 2px;
+  display: flex;
+  justify-content: center;
 `;
 
 export const Navbar1 = styled.div`
@@ -84,17 +90,17 @@ export const ScreenBox = styled.div`
   height: 200px;
   width: 450px;
   border: 2px solid;
-  border-radius: 10px;
-  //display: flex;
-  // flex-direction: column;
-  //  justify-content: space-around;
-  //align-items: center;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   //margin-bottom: px;
   // margin-top: -250px;
   box-shadow: 10px 5px 5px gray;
   // text-align: center;
-  z-index: -1;
-  padding: 2px;
+  z-index: 1;
+  padding: 2%;
 `;
 export const ScreenBox1 = styled.div`
   //background-color: pink;

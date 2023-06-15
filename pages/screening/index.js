@@ -1,22 +1,25 @@
-import { useEffect, useState, useCallback, useContext } from "react";
-import Link from "next/link";
 import {
   Box,
   Box1,
-  ScreenBox1,
-  Navbar,
-  ButtonContainer,
   ContainerMain,
+  Navbar,
   ScreenBox,
+  ScreenBox1,
 } from "@/components/styledComponents/Container.styled";
-import { useSpeechRecognition } from "react-speech-recognition";
 import { ConfigContext } from "@/contexts/ConfigContext";
+import Link from "next/link";
+import { useCallback, useContext, useEffect, useState } from "react";
+//import Dictaphone from "@/components/dictaphone/Dictaphone";
+import dynamic from "next/dynamic";
+
+const Dictaphone = dynamic(() => import("@/components/dictaphone/Dictaphone"), {
+  ssr: false,
+});
 
 export default function ScreeningPage() {
   const { config } = useContext(ConfigContext);
   const [isLoading, setIsLoading] = useState(true);
   const [tongueTwister, setTongueTwister] = useState("");
-  const [transcription, setTranscription] = useState(""); // État pour le texte de transcription
 
   const fetchTongueTwister = useCallback(async () => {
     try {
@@ -43,36 +46,9 @@ export default function ScreeningPage() {
     fetchTongueTwister();
   }, [fetchTongueTwister]);
 
-  const handleRefresh = () => {
+  function handleRefresh() {
     fetchTongueTwister();
-  };
-
-  const handleTranscription = (text) => {
-    setTranscription(text);
-  };
-
-  const {
-    transcript,
-    listening,
-    startListening,
-    stopListening,
-    resetTranscript,
-  } = useSpeechRecognition();
-
-  useEffect(() => {
-    if (transcript) {
-      handleTranscription(transcript);
-    }
-  }, [transcript]);
-
-  const handleStartRecording = () => {
-    startListening();
-  };
-
-  const handleStopRecording = () => {
-    stopListening();
-    resetTranscript();
-  };
+  }
 
   return (
     <ContainerMain>
@@ -82,27 +58,23 @@ export default function ScreeningPage() {
         ) : (
           <Box>{tongueTwister && <p>{tongueTwister}</p>}</Box>
         )}
+        <Navbar>
+          <button type="button" onClick={handleRefresh}>
+            Refresh
+          </button>
+        </Navbar>
       </ScreenBox>
-      <Navbar>
-        <button type="button" onClick={handleRefresh}>
-          Refresh
-        </button>
-      </Navbar>
+      <div>
+        {" "}
+        <h4> just before you start take a breath and read slowly</h4>
+      </div>
       <ScreenBox1>
-        <Box1>{transcription}</Box1>
+        <Dictaphone />
       </ScreenBox1>
 
-      <button type="button" onClick={handleStartRecording}>
-        Start Recording in English
-      </button>
-      <button type="button" onClick={handleStopRecording}>
-        Stop Recording in French
-      </button>
-      <button type="button" onClick={handleStopRecording}>
-        Stop Recording in German
-      </button>
+      <button type="button">Reset</button>
 
-      <Link href="/">Return</Link>
+      <Link href="/starting">Return</Link>
     </ContainerMain>
   );
 }

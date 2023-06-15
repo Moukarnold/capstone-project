@@ -1,42 +1,20 @@
-import { useContext } from "react";
-import Languages from "@/components/languages/Languages";
-import Themes from "@/components/themes/Themes";
-import Difficulty from "@/components/difficulty/Difficulty";
-import { ContainerMain } from "@/components/styledComponents/Container.styled";
-import { useRouter } from "next/router";
-import { ConfigContext } from "@/contexts/ConfigContext";
-import { ContainerForm } from "@/components/styledComponents/Container.styled";
+import {
+  ContainerMain,
+  ContainerForm,
+} from "@/components/styledComponents/Container.styled";
+import Link from "next/link";
 
 export default function HomePage() {
-  const { config, setConfig } = useContext(ConfigContext);
-  const router = useRouter();
-
-  function handleNewLanguage(language) {
-    setConfig((prevState) => ({ ...prevState, language }));
-  }
-
-  function handleNewTheme(theme) {
-    setConfig((prevState) => ({ ...prevState, theme }));
-  }
-
-  function handleNewDifficulty(difficulty) {
-    setConfig((prevState) => ({ ...prevState, difficulty }));
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    router.push("/screening");
-  }
-
   return (
-    <ContainerMain>
-      <h2>Tonguy Twisty</h2>
-      <ContainerForm onSubmit={handleSubmit}>
-        <Languages onLanguage={handleNewLanguage} />
-        <Themes onTheme={handleNewTheme} />
-        <Difficulty onDifficulty={handleNewDifficulty} />
-        <button type="submit">Get Answer</button>
-      </ContainerForm>
-    </ContainerMain>
+    <div>
+      <ContainerMain>
+        <ContainerForm>
+          <h1>welcome to tonguy-Twisty</h1>
+
+          <h3> let us have fun with Tonge twister </h3>
+        </ContainerForm>
+        <Link href={"/starting"}> Next </Link>
+      </ContainerMain>
+    </div>
   );
 }
