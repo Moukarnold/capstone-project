@@ -34,7 +34,7 @@ export default function MakeChoice() {
     <ContainerMain>
       <h2>Tonguy Twisty</h2>
       <ContainerForm onSubmit={handleSubmit}>
-        <Languages onLanguage={handleNewLanguage} />
+        <Languages language={config.language} onLanguage={handleNewLanguage} />
         <Themes onTheme={handleNewTheme} />
         <Difficulty onDifficulty={handleNewDifficulty} />
         <button type="submit">Get Answer</button>

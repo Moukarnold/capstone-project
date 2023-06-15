@@ -2,8 +2,16 @@ import React from "react";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
+import {
+  Box,
+  Box1,
+  ContainerMain,
+  Navbar1,
+  ScreenBox,
+  ScreenBox1,
+} from "@/components/styledComponents/Container.styled";
 
-const Dictaphone = () => {
+const Dictaphone = ({ language }) => {
   const {
     transcript,
     listening,
@@ -11,8 +19,19 @@ const Dictaphone = () => {
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
 
-  const handleStartRecording = (language) => {
-    SpeechRecognition.startListening({ language });
+  const handleStartRecording = () => {
+    let languageCode;
+
+    // Map the selected language to its corresponding code
+    if (language === "English") {
+      languageCode = "en-US";
+    } else if (language === "French") {
+      languageCode = "fr-FR";
+    } else if (language === "German") {
+      languageCode = "de-DE";
+    }
+
+    SpeechRecognition.startListening({ language: languageCode });
   };
 
   const handleStopRecording = () => {
@@ -23,42 +42,28 @@ const Dictaphone = () => {
     resetTranscript();
   };
 
-  const renderLanguageButtons = () => {
-    const languages = [
-      { label: "English", code: "en-US" },
-      { label: "French", code: "fr-FR" },
-      { label: "German", code: "de-DE" },
-    ];
-
-    return languages.map((language) => (
-      <button
-        key={language.code}
-        type="button"
-        onClick={() => handleStartRecording(language.code)}
-      >
-        Start Recording ({language.label})
-      </button>
-    ));
-  };
-
   return (
-    <div>
+    <ScreenBox>
       {browserSupportsSpeechRecognition ? (
         <div>
           <p>Microphone: {listening ? "on" : "off"}</p>
-          {renderLanguageButtons()}
-          <button type="button" onClick={handleStopRecording}>
-            Stop Recording
-          </button>
-          <button type="button" onClick={handleResetTranscript}>
-            Reset Transcript
-          </button>
+          <Navbar1>
+            <button type="button" onClick={handleStartRecording}>
+              Start Recording
+            </button>
+            <button type="button" onClick={handleStopRecording}>
+              Stop Recording
+            </button>
+            <button type="button" onClick={handleResetTranscript}>
+              Reset Transcript
+            </button>
+          </Navbar1>
           <p>{transcript}</p>
         </div>
       ) : (
         <p>Browser does not support speech recognition.</p>
       )}
-    </div>
+    </ScreenBox>
   );
 };
 

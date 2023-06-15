@@ -45,6 +45,7 @@ export const Navbar = styled.div`
   border: solid 2px;
   display: flex;
   justify-content: center;
+  background-color: #f8ecd0;
 `;
 
 export const Navbar1 = styled.div`
@@ -52,6 +53,11 @@ export const Navbar1 = styled.div`
   width: 440px;
   border-radius: 10px;
   border: solid 2px;
+  background-color: #f8ecd0;
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  padding: 1px;
 `;
 
 export const Box1 = styled.div`

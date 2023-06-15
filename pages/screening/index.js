@@ -68,9 +68,8 @@ export default function ScreeningPage() {
         {" "}
         <h4> just before you start take a breath and read slowly</h4>
       </div>
-      <ScreenBox1>
-        <Dictaphone />
-      </ScreenBox1>
+
+      <Dictaphone language={config.language} />
 
       <button type="button">Reset</button>
 
