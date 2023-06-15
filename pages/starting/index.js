@@ -5,9 +5,11 @@ import Difficulty from "@/components/difficulty/Difficulty";
 import {
   ContainerMain,
   ContainerForm,
+  Boutons,
 } from "@/components/styledComponents/Container.styled";
 import { useRouter } from "next/router";
 import { ConfigContext } from "@/contexts/ConfigContext";
+import Image from "next/image";
 
 export default function MakeChoice() {
   const { config, setConfig } = useContext(ConfigContext);
@@ -29,7 +31,10 @@ export default function MakeChoice() {
     event.preventDefault();
     router.push("/screening");
   }
-
+  function handleReturn(event) {
+    event.preventDefault();
+    router.push("/");
+  }
   return (
     <ContainerMain>
       <h2>Tonguy Twisty</h2>
@@ -37,8 +42,9 @@ export default function MakeChoice() {
         <Languages language={config.language} onLanguage={handleNewLanguage} />
         <Themes onTheme={handleNewTheme} />
         <Difficulty onDifficulty={handleNewDifficulty} />
-        <button type="submit">Get Answer</button>
+        <Boutons type="submit">Get Answer</Boutons>
       </ContainerForm>
+      <button onClick={handleReturn}> Home page</button>
     </ContainerMain>
   );
 }

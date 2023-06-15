@@ -6,9 +6,12 @@ import {
   Box,
   Box1,
   ContainerMain,
+  Mic,
   Navbar1,
   ScreenBox,
+  Microphone,
   ScreenBox1,
+  Boutons,
 } from "@/components/styledComponents/Container.styled";
 
 const Dictaphone = ({ language }) => {
@@ -43,27 +46,38 @@ const Dictaphone = ({ language }) => {
   };
 
   return (
-    <ScreenBox>
-      {browserSupportsSpeechRecognition ? (
+    <ScreenBox1>
+      {browserSupportsSpeechRecognition && (
         <div>
-          <p>Microphone: {listening ? "on" : "off"}</p>
+          <Microphone>
+            <p>
+              <h5>🎙️: {listening ? "On" : "off"}</h5>
+            </p>{" "}
+          </Microphone>
+          <Box1>
+            <div>
+              <p>{transcript}</p>
+            </div>
+          </Box1>
+          <Mic></Mic>
+
           <Navbar1>
-            <button type="button" onClick={handleStartRecording}>
+            <Boutons type="button" onClick={handleStartRecording}>
               Start Recording
-            </button>
-            <button type="button" onClick={handleStopRecording}>
+            </Boutons>
+            <Boutons type="button" onClick={handleStopRecording}>
               Stop Recording
-            </button>
-            <button type="button" onClick={handleResetTranscript}>
+            </Boutons>
+            <Boutons type="button" onClick={handleResetTranscript}>
               Reset Transcript
-            </button>
+            </Boutons>
           </Navbar1>
-          <p>{transcript}</p>
         </div>
-      ) : (
+      )}
+      {!browserSupportsSpeechRecognition && (
         <p>Browser does not support speech recognition.</p>
       )}
-    </ScreenBox>
+    </ScreenBox1>
   );
 };
 

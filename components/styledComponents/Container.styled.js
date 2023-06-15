@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerMain = styled.div`
-  //position: relative;
+  position: relative;
   height: 560px;
   width: 500px;
   border: solid 2px;
@@ -29,7 +29,7 @@ export const ContainerForm = styled.form`
   justify-content: space-around;
   align-items: center;
   border-radius: 20px;
-  background-color: #d4e6eb;
+  background-color: #facb5d;
 `;
 export const ContainerMainLabel = styled.label`
   display: flex;
@@ -54,28 +54,45 @@ export const Navbar1 = styled.div`
   border-radius: 10px;
   border: solid 2px;
   background-color: #f8ecd0;
-  display: flex;
-  justify-content: center;
-  justify-content: space-between;
   padding: 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  //margin-bottom: 40px;
+`;
+export const Box1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px gray solid;
+  background-color: #ebe9e9;
+  height: 130px;
+  width: 440px;
+  padding: 4%;
+  border-radius: 10px;
+  margin-top: 15px;
+`;
+export const ScreenBox1 = styled.div`
+  height: 200px;
+  width: 450px;
+  border: 1px solid;
+  border-radius: 20px;
+  box-shadow: 10px 5px 5px gray;
+  padding-left: 4px;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  background-color: #facb5d;
 `;
 
-export const Box1 = styled.div`
-  //position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 2px gray solid;
-  background-color: #ebe9e9;
-  height: 130px;
-  width: 440px;
-  // margin-top: 10px;
-  padding: 4%;
-  z-index: +3;
-  border-radius: 10px;
+export const Microphone = styled.div`
+  margin-bottom: -50px;
+`;
+
+export const Mic = styled.div`
+  height: 4px;
 `;
 export const Box = styled.div`
-  //position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,16 +100,11 @@ export const Box = styled.div`
   background-color: #ebe9e9;
   height: 130px;
   width: 440px;
-  // margin-top: 10px;
   padding: 4%;
-  z-index: +3;
   border-radius: 10px;
 `;
 
 export const ScreenBox = styled.div`
-  //background-color: pink;
-  //position: absolute;
-  //margin: 10px;
   height: 200px;
   width: 450px;
   border: 2px solid;
@@ -101,32 +113,12 @@ export const ScreenBox = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  //margin-bottom: px;
-  // margin-top: -250px;
   box-shadow: 10px 5px 5px gray;
-  // text-align: center;
-  z-index: 1;
+  z-index: 0;
   padding: 2%;
+  background-color: #facb5d;
 `;
-export const ScreenBox1 = styled.div`
-  //background-color: pink;
-  //position: absolute;
-  //margin: 10px;
-  height: 200px;
-  width: 450px;
-  border: 2px solid;
-  border-radius: 10px;
-  //display: flex;
-  // flex-direction: column;
-  //  justify-content: space-around;
-  //align-items: center;
-  //margin-bottom: px;
-  // margin-top: -250px;
-  box-shadow: 10px 5px 5px gray;
-  // text-align: center;
-  //z-index: -1;
-  padding: 2px;
-`;
+
 export const SpaceLabel = styled.span`
   margin-left: 8px;
 `;
@@ -134,9 +126,16 @@ export const SpaceLabel = styled.span`
   box-shadow: 10px 5px 5px gray;
 `;  */
 
-export const ButtonContainer = styled.button`
-  background: none;
+export const Boutons = styled.button`
+  //padding: 15px 25px;
+  font-size: 15px black;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: #b79d5f;
   border: none;
-  padding: 0;
+  border-radius: 10px;
   //cursor: pointer;
 `;
