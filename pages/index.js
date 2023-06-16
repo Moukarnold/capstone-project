@@ -1,10 +1,17 @@
 import {
   ContainerMain,
   ContainerForm,
+  Button,
 } from "@/components/styledComponents/Container.styled";
-import Link from "next/link";
-
+import { useRouter } from "next/router";
 export default function HomePage() {
+  const router = useRouter();
+
+  function handleNext(event) {
+    event.preventDefault();
+    router.push("/starting");
+  }
+
   return (
     <div>
       <ContainerMain>
@@ -13,7 +20,10 @@ export default function HomePage() {
 
           <h3> let us have fun with Tonge twister </h3>
         </ContainerForm>
-        <Link href={"/starting"}> Next </Link>
+        <Button type="button" onClick={handleNext}>
+          {" "}
+          Next{" "}
+        </Button>
       </ContainerMain>
     </div>
   );
