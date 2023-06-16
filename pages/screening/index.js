@@ -74,12 +74,15 @@ export default function ScreeningPage() {
       </ScreenBox>
       <div>
         {" "}
-        <h5> just before you start take a breath first and then read slowly</h5>
+        <h5>
+          {" "}
+          just before you start, take a breath first and then read slowly
+        </h5>
       </div>
 
       <Dictaphone language={config.language} />
 
-      <button onClick={handleReturn}>Return</button>
+      <Button onClick={handleReturn}>Return</Button>
     </ContainerMain>
   );
 }

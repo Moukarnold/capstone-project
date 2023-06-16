@@ -17,12 +17,11 @@ export const ContainerMain = styled.div`
 `;
 
 export const ContainerForm = styled.form`
-  //position: relative;
   height: 400px;
   width: 350px;
   border: solid 2px #d4e6eb;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   padding: 2%;
@@ -30,6 +29,7 @@ export const ContainerForm = styled.form`
   align-items: center;
   border-radius: 20px;
   background-color: #facb5d;
+  text-align: center;
 `;
 export const ContainerMainLabel = styled.label`
   display: flex;
@@ -58,7 +58,6 @@ export const Navbar1 = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  //margin-bottom: 40px;
 `;
 export const Box1 = styled.div`
   display: flex;
@@ -122,12 +121,8 @@ export const ScreenBox = styled.div`
 export const SpaceLabel = styled.span`
   margin-left: 8px;
 `;
-/*const StyledLink = styled(Link)`
-  box-shadow: 10px 5px 5px gray;
-`;  */
 
 export const Button = styled.button`
-  //padding: 15px 25px;
   font-size: 15px black;
   cursor: pointer;
   text-align: center;
@@ -137,5 +132,4 @@ export const Button = styled.button`
   background-color: #b79d5f;
   border: none;
   border-radius: 10px;
-  //cursor: pointer;
 `;

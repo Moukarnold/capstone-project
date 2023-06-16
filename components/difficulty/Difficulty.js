@@ -15,9 +15,9 @@ export default function Difficulty(props) {
         onChange={handleDifficulty}
       >
         <option value="">--Please choose an option--</option>
-        <option value="Basic">Basic</option>
-        <option value="Intermediate">Intermediate</option>
-        <option value="Advanced"> 🥋 Advanced</option>
+        <option value="Basic">🧍🏼‍♂️ Basic</option>
+        <option value="Intermediate"> 🚶🏼‍♂️Intermediate</option>
+        <option value="Advanced"> 🏃🏼‍♂️ Advanced</option>
       </select>
     </>
   );

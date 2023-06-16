@@ -36,7 +36,7 @@ export default function MakeChoice() {
   }
   return (
     <ContainerMain>
-      <h2>Tonguy Twisty</h2>
+      <h2>Tonguy-Twisty</h2>
       <ContainerForm onSubmit={handleSubmit}>
         <Languages language={config.language} onLanguage={handleNewLanguage} />
         <Themes onTheme={handleNewTheme} />
