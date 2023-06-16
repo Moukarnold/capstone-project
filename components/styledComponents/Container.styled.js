@@ -89,7 +89,7 @@ export const Microphone = styled.div`
   margin-bottom: -50px;
 `;
 
-export const Mic = styled.div`
+export const Space = styled.div`
   height: 4px;
 `;
 export const Box = styled.div`
@@ -126,7 +126,7 @@ export const SpaceLabel = styled.span`
   box-shadow: 10px 5px 5px gray;
 `;  */
 
-export const Boutons = styled.button`
+export const Button = styled.button`
   //padding: 15px 25px;
   font-size: 15px black;
   cursor: pointer;

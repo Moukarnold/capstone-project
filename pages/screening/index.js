@@ -5,7 +5,7 @@ import {
   Navbar,
   ScreenBox,
   ScreenBox1,
-  Boutons,
+  Button,
   Mic,
 } from "@/components/styledComponents/Container.styled";
 import { ConfigContext } from "@/contexts/ConfigContext";
@@ -67,9 +67,9 @@ export default function ScreeningPage() {
           <Box>{tongueTwister && <p>{tongueTwister}</p>}</Box>
         )}
         <Navbar>
-          <Boutons type="button" onClick={handleRefresh}>
+          <Button type="button" onClick={handleRefresh}>
             Refresh
-          </Boutons>
+          </Button>
         </Navbar>
       </ScreenBox>
       <div>

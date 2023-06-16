@@ -3,15 +3,12 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import {
-  Box,
   Box1,
-  ContainerMain,
-  Mic,
   Navbar1,
-  ScreenBox,
   Microphone,
   ScreenBox1,
-  Boutons,
+  Button,
+  Space,
 } from "@/components/styledComponents/Container.styled";
 
 const Dictaphone = ({ language }) => {
@@ -59,18 +56,18 @@ const Dictaphone = ({ language }) => {
               <p>{transcript}</p>
             </div>
           </Box1>
-          <Mic></Mic>
+          <Space />
 
           <Navbar1>
-            <Boutons type="button" onClick={handleStartRecording}>
+            <Button type="button" onClick={handleStartRecording}>
               Start Recording
-            </Boutons>
-            <Boutons type="button" onClick={handleStopRecording}>
+            </Button>
+            <Button type="button" onClick={handleStopRecording}>
               Stop Recording
-            </Boutons>
-            <Boutons type="button" onClick={handleResetTranscript}>
+            </Button>
+            <Button type="button" onClick={handleResetTranscript}>
               Reset Transcript
-            </Boutons>
+            </Button>
           </Navbar1>
         </div>
       )}

@@ -1,15 +1,14 @@
-import { useContext } from "react";
-import Languages from "@/components/languages/Languages";
-import Themes from "@/components/themes/Themes";
 import Difficulty from "@/components/difficulty/Difficulty";
+import Languages from "@/components/languages/Languages";
 import {
-  ContainerMain,
+  Button,
   ContainerForm,
-  Boutons,
+  ContainerMain,
 } from "@/components/styledComponents/Container.styled";
-import { useRouter } from "next/router";
+import Themes from "@/components/themes/Themes";
 import { ConfigContext } from "@/contexts/ConfigContext";
-import Image from "next/image";
+import { useRouter } from "next/router";
+import { useContext } from "react";
 
 export default function MakeChoice() {
   const { config, setConfig } = useContext(ConfigContext);
@@ -42,9 +41,9 @@ export default function MakeChoice() {
         <Languages language={config.language} onLanguage={handleNewLanguage} />
         <Themes onTheme={handleNewTheme} />
         <Difficulty onDifficulty={handleNewDifficulty} />
-        <Boutons type="submit">Get Answer</Boutons>
+        <Button type="submit">Get Answer</Button>
       </ContainerForm>
-      <button onClick={handleReturn}> Home page</button>
+      <Button onClick={handleReturn}> Home page</Button>
     </ContainerMain>
   );
 }
