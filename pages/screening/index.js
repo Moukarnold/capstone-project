@@ -1,15 +1,12 @@
 import {
   Box,
-  Box1,
+  Button,
   ContainerMain,
   Navbar,
+  Notice,
   ScreenBox,
-  ScreenBox1,
-  Button,
-  Mic,
 } from "@/components/styledComponents/Container.styled";
 import { ConfigContext } from "@/contexts/ConfigContext";
-import Link from "next/link";
 import { useCallback, useContext, useEffect, useState } from "react";
 //import Dictaphone from "@/components/dictaphone/Dictaphone";
 import dynamic from "next/dynamic";
@@ -72,13 +69,9 @@ export default function ScreeningPage() {
           </Button>
         </Navbar>
       </ScreenBox>
-      <div>
-        {" "}
-        <h5>
-          {" "}
-          just before you start, take a breath first and then read slowly
-        </h5>
-      </div>
+      <Notice>
+        <h5>just before you start, take a breath first and then read slowly</h5>
+      </Notice>
 
       <Dictaphone language={config.language} />
 

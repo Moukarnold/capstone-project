@@ -15,8 +15,8 @@ export default function HomePage() {
   return (
     <ContainerMain>
       <ContainerForm>
-        <h1>welcome to </h1> <h1>Tonguy-Twisty</h1>
-        <h3> let us have fun with Tonge twister </h3>
+        <h1>Welcome to </h1> <h1>Tonguy-Twisty</h1>
+        <h3> Let us have fun with Tonge twister </h3>
       </ContainerForm>
       <Button type="button" onClick={handleNext}>
         {" "}
