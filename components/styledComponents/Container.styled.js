@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 export const ContainerMain = styled.div`
-  //position: relative;
-  height: 560px;
-  width: 500px;
+  position: relative;
+  height: 667px;
+  width: 375px;
   border: solid 2px;
   margin: auto;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  padding: 2%;
+  padding-top: 50px;
+  padding-bottom: 20px;
   justify-content: space-around;
   align-items: center;
   background-color: #d2ecf4;
@@ -17,20 +17,21 @@ export const ContainerMain = styled.div`
 `;
 
 export const ContainerForm = styled.form`
-  //position: relative;
   height: 400px;
   width: 350px;
   border: solid 2px #d4e6eb;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   padding: 2%;
   justify-content: space-around;
   align-items: center;
   border-radius: 20px;
-  background-color: #d4e6eb;
+  background-color: #facb5d;
+  text-align: center;
 `;
+
 export const ContainerMainLabel = styled.label`
   display: flex;
   align-items: center;
@@ -40,7 +41,7 @@ export const ContainerMainLabel = styled.label`
 
 export const Navbar = styled.div`
   height: 40px;
-  width: 440px;
+  width: 330px;
   border-radius: 10px;
   border: solid 2px;
   display: flex;
@@ -50,93 +51,95 @@ export const Navbar = styled.div`
 
 export const Navbar1 = styled.div`
   height: 40px;
-  width: 440px;
+  width: 330px;
   border-radius: 10px;
   border: solid 2px;
   background-color: #f8ecd0;
-  display: flex;
-  justify-content: center;
-  justify-content: space-between;
   padding: 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+export const Box1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px gray solid;
+  background-color: #ebe9e9;
+  height: 130px;
+  width: 330px;
+  padding: 4%;
+  border-radius: 10px;
+  margin-top: 15px;
+`;
+export const ScreenBox1 = styled.div`
+  height: 200px;
+  width: 350px;
+  border: 1px solid;
+  border-radius: 20px;
+  box-shadow: 10px 5px 5px gray;
+  padding-left: 8px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  background-color: #facb5d;
 `;
 
-export const Box1 = styled.div`
-  //position: absolute;
+export const Microphone = styled.div`
+  margin-bottom: -50px;
+`;
+
+export const Space = styled.div`
+  height: 5px;
+`;
+
+export const Notice = styled.div`
+  height: 5px;
+  width: 300px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 2px gray solid;
-  background-color: #ebe9e9;
-  height: 130px;
-  width: 440px;
-  // margin-top: 10px;
-  padding: 4%;
-  z-index: +3;
-  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 26px;
+  border: 2px black;
 `;
 export const Box = styled.div`
-  //position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 2px gray solid;
   background-color: #ebe9e9;
   height: 130px;
-  width: 440px;
-  // margin-top: 10px;
+  width: 330px;
   padding: 4%;
-  z-index: +3;
   border-radius: 10px;
 `;
 
 export const ScreenBox = styled.div`
-  //background-color: pink;
-  //position: absolute;
-  //margin: 10px;
   height: 200px;
-  width: 450px;
+  width: 350px;
   border: 2px solid;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  //margin-bottom: px;
-  // margin-top: -250px;
   box-shadow: 10px 5px 5px gray;
-  // text-align: center;
-  z-index: 1;
+  z-index: 0;
   padding: 2%;
+  background-color: #facb5d;
 `;
-export const ScreenBox1 = styled.div`
-  //background-color: pink;
-  //position: absolute;
-  //margin: 10px;
-  height: 200px;
-  width: 450px;
-  border: 2px solid;
-  border-radius: 10px;
-  //display: flex;
-  // flex-direction: column;
-  //  justify-content: space-around;
-  //align-items: center;
-  //margin-bottom: px;
-  // margin-top: -250px;
-  box-shadow: 10px 5px 5px gray;
-  // text-align: center;
-  //z-index: -1;
-  padding: 2px;
-`;
+
 export const SpaceLabel = styled.span`
   margin-left: 8px;
 `;
-/*const StyledLink = styled(Link)`
-  box-shadow: 10px 5px 5px gray;
-`;  */
 
-export const ButtonContainer = styled.button`
-  background: none;
+export const Button = styled.button`
+  font-size: 15px black;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  background-color: #b79d5f;
   border: none;
-  padding: 0;
-  //cursor: pointer;
+  border-radius: 10px;
 `;

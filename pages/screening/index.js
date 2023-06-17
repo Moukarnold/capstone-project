@@ -1,16 +1,16 @@
 import {
   Box,
-  Box1,
+  Button,
   ContainerMain,
   Navbar,
+  Notice,
   ScreenBox,
-  ScreenBox1,
 } from "@/components/styledComponents/Container.styled";
 import { ConfigContext } from "@/contexts/ConfigContext";
-import Link from "next/link";
 import { useCallback, useContext, useEffect, useState } from "react";
 //import Dictaphone from "@/components/dictaphone/Dictaphone";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 
 const Dictaphone = dynamic(() => import("@/components/dictaphone/Dictaphone"), {
   ssr: false,
@@ -20,6 +20,7 @@ export default function ScreeningPage() {
   const { config } = useContext(ConfigContext);
   const [isLoading, setIsLoading] = useState(true);
   const [tongueTwister, setTongueTwister] = useState("");
+  const router = useRouter();
 
   const fetchTongueTwister = useCallback(async () => {
     try {
@@ -49,6 +50,10 @@ export default function ScreeningPage() {
   function handleRefresh() {
     fetchTongueTwister();
   }
+  function handleReturn(event) {
+    event.preventDefault();
+    router.push("/starting");
+  }
 
   return (
     <ContainerMain>
@@ -59,21 +64,18 @@ export default function ScreeningPage() {
           <Box>{tongueTwister && <p>{tongueTwister}</p>}</Box>
         )}
         <Navbar>
-          <button type="button" onClick={handleRefresh}>
+          <Button type="button" onClick={handleRefresh}>
             Refresh
-          </button>
+          </Button>
         </Navbar>
       </ScreenBox>
-      <div>
-        {" "}
-        <h4> just before you start take a breath and read slowly</h4>
-      </div>
+      <Notice>
+        <h5>just before you start, take a breath first and then read slowly</h5>
+      </Notice>
 
       <Dictaphone language={config.language} />
 
-      <button type="button">Reset</button>
-
-      <Link href="/starting">Return</Link>
+      <Button onClick={handleReturn}>Return</Button>
     </ContainerMain>
   );
 }

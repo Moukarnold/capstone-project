@@ -1,20 +1,27 @@
 import {
-  ContainerMain,
+  Button,
   ContainerForm,
+  ContainerMain,
 } from "@/components/styledComponents/Container.styled";
-import Link from "next/link";
-
+import { useRouter } from "next/router";
 export default function HomePage() {
-  return (
-    <div>
-      <ContainerMain>
-        <ContainerForm>
-          <h1>welcome to tonguy-Twisty</h1>
+  const router = useRouter();
 
-          <h3> let us have fun with Tonge twister </h3>
-        </ContainerForm>
-        <Link href={"/starting"}> Next </Link>
-      </ContainerMain>
-    </div>
+  function handleNext(event) {
+    event.preventDefault();
+    router.push("/starting");
+  }
+
+  return (
+    <ContainerMain>
+      <ContainerForm>
+        <h1>Welcome to </h1> <h1>Tonguy-Twisty</h1>
+        <h3> Let us have fun with Tonge twister </h3>
+      </ContainerForm>
+      <Button type="button" onClick={handleNext}>
+        {" "}
+        Next{" "}
+      </Button>
+    </ContainerMain>
   );
 }

@@ -1,13 +1,14 @@
-import { useContext } from "react";
-import Languages from "@/components/languages/Languages";
-import Themes from "@/components/themes/Themes";
 import Difficulty from "@/components/difficulty/Difficulty";
+import Languages from "@/components/languages/Languages";
 import {
-  ContainerMain,
+  Button,
   ContainerForm,
+  ContainerMain,
 } from "@/components/styledComponents/Container.styled";
-import { useRouter } from "next/router";
+import Themes from "@/components/themes/Themes";
 import { ConfigContext } from "@/contexts/ConfigContext";
+import { useRouter } from "next/router";
+import { useContext } from "react";
 
 export default function MakeChoice() {
   const { config, setConfig } = useContext(ConfigContext);
@@ -29,16 +30,20 @@ export default function MakeChoice() {
     event.preventDefault();
     router.push("/screening");
   }
-
+  function handleReturn(event) {
+    event.preventDefault();
+    router.push("/");
+  }
   return (
     <ContainerMain>
-      <h2>Tonguy Twisty</h2>
+      <h2>Tonguy-Twisty</h2>
       <ContainerForm onSubmit={handleSubmit}>
         <Languages language={config.language} onLanguage={handleNewLanguage} />
         <Themes onTheme={handleNewTheme} />
         <Difficulty onDifficulty={handleNewDifficulty} />
-        <button type="submit">Get Answer</button>
+        <Button type="submit">Get Answer</Button>
       </ContainerForm>
+      <Button onClick={handleReturn}> Home page</Button>
     </ContainerMain>
   );
 }

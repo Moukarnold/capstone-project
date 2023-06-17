@@ -3,12 +3,12 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import {
-  Box,
   Box1,
-  ContainerMain,
   Navbar1,
-  ScreenBox,
+  Microphone,
   ScreenBox1,
+  Button,
+  Space,
 } from "@/components/styledComponents/Container.styled";
 
 const Dictaphone = ({ language }) => {
@@ -43,27 +43,38 @@ const Dictaphone = ({ language }) => {
   };
 
   return (
-    <ScreenBox>
-      {browserSupportsSpeechRecognition ? (
+    <ScreenBox1>
+      {browserSupportsSpeechRecognition && (
         <div>
-          <p>Microphone: {listening ? "on" : "off"}</p>
+          <Microphone>
+            <p>
+              <h5>🎙️: {listening ? "On" : "off"}</h5>
+            </p>{" "}
+          </Microphone>
+          <Box1>
+            <div>
+              <p>{transcript}</p>
+            </div>
+          </Box1>
+          <Space />
+
           <Navbar1>
-            <button type="button" onClick={handleStartRecording}>
+            <Button type="button" onClick={handleStartRecording}>
               Start Recording
-            </button>
-            <button type="button" onClick={handleStopRecording}>
+            </Button>
+            <Button type="button" onClick={handleStopRecording}>
               Stop Recording
-            </button>
-            <button type="button" onClick={handleResetTranscript}>
+            </Button>
+            <Button type="button" onClick={handleResetTranscript}>
               Reset Transcript
-            </button>
+            </Button>
           </Navbar1>
-          <p>{transcript}</p>
         </div>
-      ) : (
+      )}
+      {!browserSupportsSpeechRecognition && (
         <p>Browser does not support speech recognition.</p>
       )}
-    </ScreenBox>
+    </ScreenBox1>
   );
 };
 
