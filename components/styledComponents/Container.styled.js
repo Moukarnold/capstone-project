@@ -142,4 +142,9 @@ export const Button = styled.button`
   background-color: #b79d5f;
   border: none;
   border-radius: 10px;
+
+  &:hover {
+    background-color: #ffc107;
+    color: white;
+  }
 `;
