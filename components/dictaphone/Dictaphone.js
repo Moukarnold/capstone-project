@@ -47,9 +47,7 @@ const Dictaphone = ({ language }) => {
       {browserSupportsSpeechRecognition && (
         <div>
           <Microphone>
-            <p>
-              <h5>🎙️: {listening ? "On" : "off"}</h5>
-            </p>{" "}
+            <h5>🎙️: {listening ? "On" : "off"}</h5>
           </Microphone>
           <Box1>
             <div>
