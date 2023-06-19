@@ -70,7 +70,7 @@ export default function ScreeningPage() {
         </Navbar>
       </ScreenBox>
       <Notice>
-        <h5>just before you start, take a breath first and then read slowly</h5>
+        <h5>Just before you start, take a breath first and then read slowly</h5>
       </Notice>
 
       <Dictaphone language={config.language} />
